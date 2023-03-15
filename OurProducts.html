@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pharmacy</title>
+        <link rel="stylesheet" href="styles/our-products.css">
+    </head>
+<body>
+    <header class='header'>
+        <div class="header__menu">
+            <div class="header__logo">
+                <img src="assets/icons/logo.svg" alt="logo"/>
+            </div>
+            <ul>
+                <li class="header__nav">
+                    <div class="header__links">
+                        <a href="index.html">Pharmacy</a>
+                        <a href="OurProducts.html">Our products</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__shop">
+            <span class='header__shop-icons'>
+                <a href="ShopingCard.html">
+                    <i class="fa-solid fa-cart-shopping header__shop-icon"></i>
+                </a>
+                <div class="header__badge ">
+                    1
+                </div>
+            </span>
+        </div>
+        <div class="header__user">
+            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <section class="common__section">
+        <div class='text-center'>
+            <h1>Our Products</h1>
+        </div>
+    </section>
+
+    <section class="about-coffee">
+        <img src='assets/image/items-img/worker.jpg' alt="girl" class="about-coffee__img" />
+        
+        <div class="about-goods__descr">
+            <h2 class="title-pt-0">About our pharmacy</h2>
+            <div class="coffee-beans">
+                <hr class='hr'/>
+                <img src='assets/icons/logo1.svg' alt="beans" class="logo-top-img" />
+                <hr class='hr'/>
+            </div>
+            <h2 class="title-pt-0"></h2>
+            <div class="about-goods__subtitle">
+                An online pharmacy is a digital platform that allows customers to purchase prescription medications and other healthcare products from the comfort of their homes. 
+                Online pharmacies offer a convenient and discreet way for people to access medications and other healthcare products without having to physically visit a brick-and-mortar pharmacy. 
+            </div>
+        </div>
+    </section>
+
+    <section class="filter">
+        <hr class="filter__hr" />
+        <div class="filter__elem">
+            <div class="filter__look">
+                <div class="filter__look-title">
+                    Lookiing for
+                </div>
+                <input ref={inputRef} onChange={filteredByName} type="text" placeholder="start typing here..." class="filter__look-input" />
+            </div>
+
+            <div class="filter__country" id="myDIV">
+                <div class="filter__country-title">
+                    Or filter
+                </div>
+
+                <div class="filter__country-block-btn">
+                    <button class='btn' onClick={all}>
+                        All
+                    </button>
+                    <button class="btn" onClick={filteredByCategory}>
+                        Spray
+                    </button>
+                    <button class='btn' onClick={filteredByCategory}>
+                        Pills
+                    </button>
+                    <button class='btn' onClick={filteredByCategory}>
+                        Potion
+                    </button>
+                    <button class='btn' onClick={filteredByCategory}>
+                        Demand 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product">
+        <div class='product__wrapper'>
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+
+            <div class="product__block">
+                <a href='Item.html'>
+                    <img src='assets/image/items-img/hilka.jpg' alt="" class='product__img' />
+                </a>
+                <a href='Item.html' class='product__link'>
+                    <div class="product__title">
+                        Kaptopres Darnytsia
+                    </div>
+                </a>
+                <div class="product__country">
+                    Available
+                </div>
+                <div class="product__price">
+                    <div class='product__add'>
+                        <div class="product__add-item">+</div>
+                    </div>
+                    $12.49
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class='blackheader'>
+            <div class="blackheader__menu">
+                    <li class="blackheader__nav" key={index}>
+                        <div class="blackheader__links">
+                            <a href="index.html">Pharmacy</a>
+                            <a href="OurProducts.html">Our products</a>
+                        </div>
+                    </li>
+                
+            </div>
+        </div>
+            <div class="footer-bottom">
+                <div class="coffee-beans">
+                    <hr class='hr'/>
+                    <img src='assets/icons/logo1.svg' alt="beans" class="logo-top-img" />
+                    <hr class='hr'/>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

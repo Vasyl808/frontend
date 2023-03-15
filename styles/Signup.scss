@@ -1,0 +1,63 @@
+@import "mixines.scss";
+@import "color.scss";
+.login {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 700px;
+    background-color: rgb(36, 54, 38);
+    &__wrapper {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+       padding: 20px;
+       color: $white;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__username {
+        margin-bottom: 7px;
+    }
+
+    &__password-block {
+        padding-top: 0;
+    }
+
+    &__input {
+        width: 100%;
+        outline: none;
+        padding: 6px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+    }
+    
+    &__btn {
+        width: 100%;
+        height: 40px;
+        background-color: rgb(128, 113, 74);
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__signup {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+
+    &__descr {
+        margin-right: 8px;
+    }
+
+    &__link {
+        color: $white;
+    }
+}

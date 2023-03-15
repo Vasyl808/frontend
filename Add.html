@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy</title>
+    <link rel="stylesheet" href="styles/add.css">
+</head>
+<body>
+    <header class='header'>
+        <div class="header__menu">
+            <div class="header__logo">
+                <img src="assets/icons/logo.svg" alt="logo"/>
+            </div>
+            <ul>
+                <li class="header__nav">
+                    <div class="header__links">
+                        <a href="index.html">Pharmacy</a>
+                        <a href=OurProducts.html">Our products</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__shop">
+            <span class='header__shop-icons'>
+                <a href="ShopingCard.html">
+                    <i class="fa-solid fa-cart-shopping header__shop-icon"></i>
+                </a>
+                <div class="header__badge ">
+                    1
+                </div>
+            </span>
+        </div>
+        <div class="header__user">
+            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <section class="common__section">
+        <div class='text-center'>
+            <h1>Add item</h1>
+        </div>
+    </section>
+
+    <div class="add">
+        <div class="add__wrapper">
+            <h2 class="add__title">
+                Add Item
+            </h2>
+            <div class="add__inputs">
+                <div class="add__item">
+                    <div class="add__name">Name</div>
+                    <input type="text" class="add__input">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Manufacturer</div>
+                    <input type="text" class="add__input">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Description</div>
+                    <input type="text" class="add__input">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Category id</div>
+                    <input type="number" class="add__input" min="1" max="50">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Price</div>
+                    <input type="number" class="add__input" min="1" max="5000">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Quantity</div>
+                    <input type="number" class="add__input" min="1" max="5000">
+                </div>
+                <button class="add__btn">ADD</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class='blackheader'>
+            <div class="blackheader__menu">
+                    <li class="blackheader__nav" key={index}>
+                        <div class="blackheader__links">
+                            <a href="index.html">Pharmacy</a>
+                            <a href="OurProducts.html">Our products</a>
+                        </div>
+                    </li>
+                
+            </div>
+        </div>
+            <div class="footer-bottom">
+                <div class="coffee-beans">
+                    <hr class='hr'/>
+                    <img src='assets/icons/logo1.svg' alt="beans" class="logo-top-img" />
+                    <hr class='hr'/>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

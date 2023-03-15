@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap");
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+.header {
+  top: 30px;
+  left: 128px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+.header__menu {
+  width: 355px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header__logo {
+  width: 35px;
+  height: 35px;
+  padding-left: 12px;
+}
+.header__nav, .header a {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+.header__nav-active {
+  font-weight: 700;
+}
+.header__shop {
+  margin: 15px 0 0 600px;
+  cursor: pointer;
+}
+.header__shop-icons {
+  position: relative;
+}
+.header__img {
+  width: 30px;
+  height: 30px;
+}
+.header__shop-icon {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+.header__shop-icon a i {
+  font-size: 28px;
+}
+.header__shop-icon.clicked {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-out;
+}
+.header__badge {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: brown;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__user {
+  margin-top: 10px;
+  margin-left: 6px;
+  color: rgb(255, 255, 255);
+}
+.header__user a {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+}
+
+.blackheader {
+  width: 355px;
+  height: 40px;
+  margin: 30px auto 0 auto;
+}
+.blackheader__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blackheader__logo {
+  width: 35px;
+  height: 35px;
+}
+.blackheader__nav, .blackheader a {
+  list-style-type: none;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 12px;
+}
+.blackheader__nav-active {
+  font-weight: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merienda", sans-serif;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.coffee-beans {
+  width: 200px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hr {
+  width: 60px;
+  color: #000;
+}
+
+.hr-big {
+  width: 240px;
+  margin: 30px auto 0 auto;
+  color: #000;
+}
+
+.beans-img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo-top-img {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.title-pt-0 {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.buy__btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(22, 21, 21);
+  color: rgb(255, 255, 255);
+  margin-left: 30px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.demand__btn {
+  background: rgb(22, 21, 21);
+  color: rgb(255, 255, 255);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+  width: 150px;
+  height: 30px;
+  font-weight: 30px;
+  margin-right: 7px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.buy__btn-w-300 {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(22, 21, 21);
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.buy__btn-w-150 {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(22, 21, 21);
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.buy__btn-w-300 a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.buy__btn-w-300:hover {
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.buy__btn:hover {
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.footer-bottom {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .header__shop {
+    margin: 15px 0 0 400px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .header {
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .header__shop {
+    margin: 15px 0 0 40px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .header__menu {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .header__logo {
+    padding-left: 0;
+  }
+  .header__shop {
+    margin: 15px 0 0 10px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .header__menu {
+    width: 300px;
+  }
+  .header__shop {
+    margin: 15px 0 0 2px;
+  }
+}
+.common__section {
+  background: url("../assets/image/bg/main_bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 100px 0px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.common__section h1 {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.fa {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+}
+
+.fa,
+.fa-classic,
+.fa-sharp,
+.fas,
+.fa-solid,
+.far,
+.fa-regular,
+.fab,
+.fa-brands {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fas,
+.fa-classic,
+.fa-solid,
+.far,
+.fa-regular {
+  font-family: "Font Awesome 6 Free";
+}
+
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 6 Brands";
+}
+
+.fa-trash-can::before {
+  content: "\f2ed";
+}
+
+.fa-trash-alt::before {
+  content: "\f2ed";
+}
+
+.fa-trash::before {
+  content: "\f1f8";
+}
+
+.fa-cart-shopping::before {
+  content: "\f07a";
+}
+
+.fa-shopping-cart::before {
+  content: "\f07a";
+}
+
+:root, :host {
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
+}
+.far,
+.fa-regular {
+  font-weight: 400;
+}
+
+:root, :host {
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
+}
+.fas,
+.fa-solid {
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-display: block;
+  font-weight: 900;
+  src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-display: block;
+  font-weight: 400;
+  src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
+}/*# sourceMappingURL=common-section.css.map */

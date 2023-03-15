@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pharmacy</title>
+        <link rel="stylesheet" href="styles/checkout.css">
+    </head>
+<body>
+
+    <header class='header'>
+        <div class="header__menu">
+            <div class="header__logo">
+                <img src="assets/icons/logo.svg" alt="logo"/>
+            </div>
+            <ul>
+                <li class="header__nav">
+                    <div class="header__links">
+                        <a href="index.html">Pharmacy</a>
+                        <a href="OurProducts.html">Our products</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__shop">
+            <span class='header__shop-icons'>
+                <a href="ShopingCard.html">
+                    <i class="fa-solid fa-cart-shopping header__shop-icon"></i>
+                </a>
+                <div class="header__badge ">
+                    1
+                </div>
+            </span>
+        </div>
+        <div class="header__user">
+            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <section class="common__section">
+        <div class='text-center'>
+            <h1>Checkout</h1>
+        </div>
+    </section>
+
+<section class='bgc'>
+    <h2 class='bgc__title'>Checkout</h2>
+    </section>
+        <Form class="form">
+            <div class="input__wrapper">
+                <input 
+                    placeholder="Enter your name"
+                    id="name"
+                    name="name"
+                    type="text"
+                />
+                <input
+                    placeholder="Enter your email" 
+                    id="email"
+                    name="email"
+                    type="email"   
+                />
+                <input
+                    placeholder="Phone number" 
+                    id="number"
+                    name="number"
+                    type="number"   
+                />
+                <input
+                    placeholder="Street address" 
+                    id="street"
+                    name="street"
+                    type="text"   
+                />
+                <input
+                    placeholder="City" 
+                    id="city"
+                    name="city"
+                    type="text"   
+                />
+                <input
+                    placeholder="Postal code" 
+                    id="code"
+                    name="code"
+                    type="number"   
+                />
+                <input
+                    placeholder="Country" 
+                    id="country"
+                    name="country"
+                    type="text"   
+                />
+            </div>
+
+        <div class="checkout">
+            <div class="checkout__wrapper">
+                <div>Total Qty: 
+                    <span>1 items</span>
+                </div>
+                <div>Subtotal: 
+                    <span>$12.49</span>
+                </div>
+                <div>Shipping:
+                    <span>$0</span>
+                </div>
+                <div>Total cost: 
+                    <span>$12.49</span>
+                </div>
+                <button type='submit'  class="buy__btn-w-150">
+                    Place an order
+                </button>
+            </div>
+        </div>
+        </Form>
+    </Formik>
+
+    <footer>
+        <div class='blackheader'>
+            <div class="blackheader__menu">
+                    <li class="blackheader__nav" key={index}>
+                        <div class="blackheader__links">
+                            <a href="index.html">Pharmacy</a>
+                            <a href="OurProducts.html">Our products</a>
+                        </div>
+                    </li>
+                
+            </div>
+        </div>
+            <div class="footer-bottom">
+                <div class="coffee-beans">
+                    <hr class='hr'/>
+                    <img src='assets/icons/logo1.svg' alt="beans" class="logo-top-img" />
+                    <hr class='hr'/>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

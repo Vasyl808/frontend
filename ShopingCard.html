@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pharmacy</title>
+        <link rel="stylesheet" href="styles/shoping-card.css">
+    </head>
+<body>
+
+    <header class='header'>
+        <div class="header__menu">
+            <div class="header__logo">
+                <img src="assets/icons/logo.svg" alt="logo"/>
+            </div>
+            <ul>
+                <li class="header__nav">
+                    <div class="header__links">
+                        <a href="index.html">Pharmacy</a>
+                        <a href="OurProducts.html">Our products</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__shop">
+            <span class='header__shop-icons'>
+                <a href="ShopingCard.html">
+                    <i class="fa-solid fa-cart-shopping header__shop-icon"></i>
+                </a>
+                <div class="header__badge ">
+                    1
+                </div>
+            </span>
+        </div>
+        <div class="header__user">
+            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <section class="common__section">
+        <div class='text-center'>
+            <h1>Shoping Card</h1>
+        </div>
+    </section>
+        <div class="card">
+
+            <table  class='table bordered'>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="Item.html">
+                                <img src='assets/image/items-img/hilka.jpg' alt="item" />
+                            </a>
+                        </td>
+                        <td>Kaptopres Darnytsia</td>
+                        <td>$12.49</td>
+                        <td>1px</td>
+                        <td>
+                            <div>
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card__wrapper">
+                <div class="card__subtotal">
+                    <div class="card__subtotal-title">
+                        Subtotal
+                    </div>
+                    <div class="card__subtotal-price">
+                        $12.49
+                    </div>
+                </div>
+                <div class="card__subtitle">
+                    taxes and shipping will calculate in checkout
+                </div>
+                <button class="buy__btn-w-300">
+                    <a href='Checkout.html'>Checkout</a>
+                </button>
+                <button class="buy__btn-w-300">
+                    <a href="OurProducts.html">Continue Shoping</a>
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <div class='blackheader'>
+                <div class="blackheader__menu">
+                        <li class="blackheader__nav" key={index}>
+                            <div class="blackheader__links">
+                                <a href="index.html">Pharmacy</a>
+                                <a href="OurProducts.html">Our products</a>
+                            </div>
+                        </li>
+                    
+                </div>
+            </div>
+                <div class="footer-bottom">
+                    <div class="coffee-beans">
+                        <hr class='hr'/>
+                        <img src='assets/icons/logo1.svg' alt="beans" class="logo-top-img" />
+                        <hr class='hr'/>
+                    </div>
+                </div>
+        </footer>
+</body>
+</html>

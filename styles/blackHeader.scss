@@ -1,0 +1,35 @@
+@import "color.scss";
+.blackheader {
+    width: 355px;
+    height: 40px;
+    margin: 30px auto 0 auto;
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    &__logo {
+        width: 35px;
+        height: 35px;
+        // padding-left: 10px;
+    }
+
+    &__nav, a {
+        list-style-type: none;
+        text-decoration: none;
+        color: $black;
+        font-size: 12px;
+        font-weight: 700;
+        padding-top: 20px;
+        padding-right: 10px;
+        padding-left: 12px;
+    }
+
+
+    &__nav-active {
+        font-weight: 700;
+    }
+}

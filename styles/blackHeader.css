@@ -1,0 +1,27 @@
+.blackheader {
+  width: 355px;
+  height: 40px;
+  margin: 30px auto 0 auto;
+}
+.blackheader__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blackheader__logo {
+  width: 35px;
+  height: 35px;
+}
+.blackheader__nav, .blackheader a {
+  list-style-type: none;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 12px;
+}
+.blackheader__nav-active {
+  font-weight: 700;
+}/*# sourceMappingURL=blackHeader.css.map */
