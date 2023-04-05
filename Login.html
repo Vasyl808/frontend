@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/login.css">
+        <script src="js/login.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -48,15 +49,13 @@
             <h2 class="login__title">Login</h2>
             <div class="login__username-block">
                 <div class="login__username">Username</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="username" class="login__input">
             </div>
             <div class="login__password-block">
                 <div class="login__username">Password</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="password" class="login__input">
             </div>
-            <button type="submit" class="login__btn">
-                <a href="User.html">Login</a>
-            </button>
+            <button type="submit" class="login__btn">Login</button>
             <div class="login__signup">
                 <div class="login__descr">
                     Don`t have an account?

@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/update-user.css">
+        <script src="js/update_user.js" defer></script>
+        <script src="js/header.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -32,9 +34,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -48,30 +47,34 @@
             <h2 class="login__title">Update User</h2>
             <div class="login__username-block">
                 <div class="login__username">First Name</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="first_name">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Last Name</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="last_name">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Username</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="username">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Email</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="email">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Phone number</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="phone_number">
+            </div>
+            <div class="login__username-block">
+                <div class="login__username">Age</div>
+                <input required type="number" id="age" class="login__input">
             </div>
             <div class="login__password-block">
                 <div class="login__username">Password</div>
-                <input required type="text" class="login__input">
+                <input required type="text" class="login__input" id="password">
             </div>
-            <button type="submit" class="login__btn">
-                <a href="User.html">Update</a>
+            <button type="submit" class="login__btn" id="update">
+                Update
             </button>
         </form>
     </div>

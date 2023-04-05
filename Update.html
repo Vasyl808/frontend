@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/add.css">
+        <script src="js/header.js" defer></script>
+        <script src="js/update_item.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -31,9 +33,6 @@
                     1
                 </div>
             </span>
-        </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
         </div>
     </header>
 
@@ -76,6 +75,10 @@
                 <div class="add__item">
                     <div class="add__name">Demand</div>
                     <input type="number" class="add__input"  min="0" max="1">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Status</div>
+                    <input type="text" class="add__input">
                 </div>
                 <button class="add__btn">Update</button>
             </div>

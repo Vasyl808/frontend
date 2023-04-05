@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/admin.css">
+        <script src="js/header.js" defer></script>
+        <script src="js/logout.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -32,9 +34,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -55,8 +54,11 @@
                 <button class="admin__btn">
                     <a href="Delete.html">Update item</a>
                 </button>
-                <button class="admin__btn">
+                <button class="admin__btn" id="logout_btn">
                     <a href="index.html">Log out</a>
+                </button>
+                <button class="admin__btn">
+                    <a href="Shoping-list.html">Shopipng list</a>
                 </button>
             </div>
         </div>

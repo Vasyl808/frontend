@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/user.css">
+        <script src="js/logout.js" defer></script>
+        <script src="js/user.js" defer></script>
+        <script src="js/delete_acc.js" defer></script>
+        <script src="js/header.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -32,9 +36,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -52,13 +53,13 @@
                 <button class="panel__btn">
                     <a href="Update-User.html"> Update User</a>
                 </button>
-                <button class="panel__btn">
+                <button class="panel__btn" type="submit" id="delete_btn">
                     Delete account
                 </button>
                 <button class="panel__btn">
-                    <a href="Shoping-list.html">Shoping list</a>
+                    <a href="Shoping-list.html">Shopping list</a>
                 </button>
-                <button class="panel__btn">
+                <button class="panel__btn" type="submit" id="logout_btn">
                     Log Out
                 </button>
             </div>
@@ -69,31 +70,25 @@
                 <div class="panel__info-wrapper">
                     <div class="panel__info-block">
                         <div class="panel__info__name">Username:</div>
-                        <div class="panel__info__name">User</div>
+                        <div class="panel__info__name" id="username"></div>
                     </div>
                     <div class="panel__info-block">
                         <div class="panel__info__name">First name:</div>
-                        <div class="panel__info__name">User</div>
+                        <div class="panel__info__name" id="first_name"></div>
                     </div>
                     <div class="panel__info-block">
                         <div class="panel__info__name">Last name:</div>
-                        <div class="panel__info__name">User</div>
+                        <div class="panel__info__name" id="last_name"></div>
                     </div>
                     <div class="panel__info-block">
                         <div class="panel__info__name">Email:</div>
-                        <div class="panel__info__name">User@gmail.com</div>
+                        <div class="panel__info__name" id="email"></div>
                     </div>
                     <div class="panel__info-block">
                         <div class="panel__info__name">Phone number:</div>
-                        <div class="panel__info__name">0974672134</div>
+                        <div class="panel__info__name" id="phone_number"></div>
                     </div>
-                    <div class="panel__info-block">
-                        <div class="panel__info__name">Password:</div>
-                        <div class="panel__info__name">********</div>
-                    </div>
-                    <button class="panel__btn">
-                        <a href="Admin.html">Admin panel</a>
-                    </button>
+                    
                 </div>
             </div>
         </div>

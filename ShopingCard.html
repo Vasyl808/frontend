@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/shoping-card.css">
+        <script src="js/header.js" defer></script>
+        <script src="js/card.js" defer></script>
     </head>
 <body>
 
@@ -33,9 +35,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -47,31 +46,11 @@
 
             <table  class='table bordered'>
                 <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Delete</th>
-                    </tr>
+
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>
-                            <a href="Item.html">
-                                <img src='assets/image/items-img/hilka.jpg' alt="item" />
-                            </a>
-                        </td>
-                        <td>Kaptopres Darnytsia</td>
-                        <td>$12.49</td>
-                        <td>1px</td>
-                        <td>
-                            <div>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                        </td>
-                    </tr>
+ 
                 </tbody>
             </table>
 
@@ -81,14 +60,14 @@
                         Subtotal
                     </div>
                     <div class="card__subtotal-price">
-                        $12.49
+
                     </div>
                 </div>
                 <div class="card__subtitle">
                     taxes and shipping will calculate in checkout
                 </div>
-                <button class="buy__btn-w-300">
-                    <a href='Checkout.html'>Checkout</a>
+                <button class="buy__btn-w-300" id="checkout">
+                    
                 </button>
                 <button class="buy__btn-w-300">
                     <a href="OurProducts.html">Continue Shoping</a>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy</title>
     <link rel="stylesheet" href="styles/add.css">
+    <script src="js/header.js" defer></script>
+    <script src="js/admin.js" defer></script>
 </head>
 <body>
     <header class='header'>
@@ -32,9 +34,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -51,27 +50,35 @@
             <div class="add__inputs">
                 <div class="add__item">
                     <div class="add__name">Name</div>
-                    <input type="text" class="add__input">
+                    <input type="text" class="add__input", id="name">
                 </div>
                 <div class="add__item">
                     <div class="add__name">Manufacturer</div>
-                    <input type="text" class="add__input">
+                    <input type="text" class="add__input" id="manufacturer">
                 </div>
                 <div class="add__item">
                     <div class="add__name">Description</div>
-                    <input type="text" class="add__input">
+                    <input type="text" class="add__input" id="description">
                 </div>
                 <div class="add__item">
                     <div class="add__name">Category id</div>
-                    <input type="number" class="add__input" min="1" max="50">
+                    <input type="number" class="add__input" min="1" max="50" id="c_id">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Medicine status</div>
+                    <input type="text" class="add__input" id="medicine_status">
                 </div>
                 <div class="add__item">
                     <div class="add__name">Price</div>
-                    <input type="number" class="add__input" min="1" max="5000">
+                    <input type="number" class="add__input" min="1" max="5000" id="price">
                 </div>
                 <div class="add__item">
                     <div class="add__name">Quantity</div>
-                    <input type="number" class="add__input" min="1" max="5000">
+                    <input type="number" class="add__input" min="1" max="5000" id="quantity">
+                </div>
+                <div class="add__item">
+                    <div class="add__name">Demand</div>
+                    <input type="number" class="add__input" min="0" max="1" id="demand">
                 </div>
                 <button class="add__btn">ADD</button>
             </div>

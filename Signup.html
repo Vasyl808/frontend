@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pharmacy</title>
         <link rel="stylesheet" href="styles/Signup.css">
+        <script src="js/sign_up.js" defer></script>
+        <script src="js/header.js" defer></script>
     </head>
 <body>
     <header class='header'>
@@ -32,9 +34,6 @@
                 </div>
             </span>
         </div>
-        <div class="header__user">
-            <a href="Login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
     </header>
 
     <section class="common__section">
@@ -48,37 +47,37 @@
             <h2 class="login__title">Sign Up</h2>
             <div class="login__username-block">
                 <div class="login__username">First name</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="first_name" class="login__input">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Last name</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="last_name" class="login__input">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Username</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="username" class="login__input">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Email</div>
-                <input required type="email" class="login__input">
+                <input required type="email" id="email" class="login__input">
             </div>
             <div class="login__username-block">
                 <div class="login__username">Age</div>
-                <input required type="number" class="login__input">
+                <input required type="number" id="age" class="login__input">
             </div>
             <div class="login__password-block">
                 <div class="login__username">Phone number</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="phone_number" class="login__input">
             </div>
             <div class="login__password-block">
                 <div class="login__username">Password</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="password" class="login__input">
             </div>
             <div class="login__password-block">
                 <div class="login__username">Сonfirm password</div>
-                <input required type="text" class="login__input">
+                <input required type="text" id="confirm_password" class="login__input">
             </div>
-            <button class="login__btn">Sign Up</button>
+            <button class="login__btn" type="submit">Sign Up</button>
         </form>
     </div>
 
