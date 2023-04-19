@@ -1,0 +1,83 @@
+@import "color.scss";
+.product {
+    
+    &__block {
+        width: 220px;
+        height: 260px;
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.10);
+        border-radius: 15px;
+        background-color: $white;
+        padding: 10px;
+    }
+
+    &__block:hover {
+        cursor: pointer;
+        border: none;
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.30);
+    }
+
+    &__img {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 17px;
+    }
+
+    &__title {
+        margin-top: 25px;
+        font-size: 14px;
+        text-align: center;
+        color: #000;
+    }
+
+    &__title:hover {
+        font-weight: 700;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__country {
+        margin-top: 10px;
+        font-size: 14px;
+        margin-right: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__price {
+        margin-top: 5px;
+        font-size: 17px;
+        font-weight: 700;
+        margin-right: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__add {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-right: 100px;
+        margin-top: -15px;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+
+    &__add-item {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .product {
+        &__block {
+            margin: 20px;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@import "mixines.scss";
+@import "color.scss";
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        margin-right: 200px;
+        width: 200px;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__btn {
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        height: 40px;
+        background-color: rgb(128, 113, 74);
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__btn a {
+        text-decoration: none;
+        color: $white;
+    }
+
+    &__info {
+        width: 250px;
+    }
+
+    &__info-title {
+        text-align: center;
+    }
+    
+    &__info-block {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    &__info__name{
+        margin-right: 10px;
+    }
+}

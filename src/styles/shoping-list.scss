@@ -1,0 +1,35 @@
+@import "mixines.scss";
+@import "color.scss";
+
+.list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+        width: 300px;
+        height: 100%;
+    }
+
+    &__block {
+        margin-top: 20px;
+    }
+
+    &__block button {
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        height: 40px;
+        background-color: rgb(128, 113, 74);
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__block button a {
+        text-decoration: none;
+        color: $white;
+    }
+}

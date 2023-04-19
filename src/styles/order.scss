@@ -1,0 +1,38 @@
+@import "mixines.scss";
+@import "color.scss";
+@import "shoping-card.scss";
+@import "checkout.scss";
+
+table {
+    margin-top: 40px;
+    margin-right: 60px;
+}
+
+.orderQ {
+    margin-top: 40px;
+    height: 400px;
+    width: 400px;
+    background-color: #f0923f;
+    border-radius: 20px;
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    span {
+        margin-left: 20px;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.smitia{
+    margin-left: 150px;
+}
+
+.dist{
+    margin-left: 20px;
+}

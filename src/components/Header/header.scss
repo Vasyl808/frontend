@@ -1,0 +1,93 @@
+@import "color.scss";
+.header {
+    top: 30px;
+    left: 128px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+
+    &__menu {
+        width: 355px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+
+    &__logo {
+        width: 35px;
+        height: 35px;
+        padding-left: 12px;
+    }
+
+    &__nav, a {
+        list-style-type: none;
+        text-decoration: none;
+        color: $white;
+        font-size: 12px;
+        padding-top: 20px;
+        padding-right: 10px;
+    }
+
+
+    &__nav-active {
+        font-weight: 700;
+    }
+
+    &__shop {
+        margin: 15px 0 0 600px;
+        cursor: pointer;
+    }
+
+    &__shop-icons {
+        position: relative;
+    }
+
+    &__img {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__shop-icon {
+        font-size: 28px;
+        color: $white;
+        transform: scale(1);
+        transition: transform 0.3s ease-out;
+    }
+
+    &__shop-icon a i{
+        font-size: 28px;
+    }
+
+    &__shop-icon.clicked  {
+        transform: scale(1.2);
+        transition: transform 0.3s ease-out;
+    }
+
+    &__badge  {
+        position: absolute;
+        top: -18px;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color:brown;
+        color: $white;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__user {
+        margin-top: 10px;
+        margin-left: 6px;
+        color: $white;
+    }
+
+    &__user a {
+        font-size: 28px;
+        color: $white;
+    }
+}

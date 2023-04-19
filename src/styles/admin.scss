@@ -1,0 +1,40 @@
+@import "mixines.scss";
+@import "color.scss";
+.admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+    &__wrapper {
+        width: 200px;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__btns {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    &__btn {
+        margin-top: 20px;
+        width: 100%;
+        margin-top: 20px;
+        height: 40px;
+        background-color: rgb(128, 113, 74);
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__btn a {
+        text-decoration: none;
+        color: $white;
+    }
+    
+}

@@ -1,0 +1,44 @@
+@import "mixines.scss";
+@import "product.scss";
+@import "product-list.scss";
+@import "shoping-card.scss";
+@import "color.scss";
+.delete__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.img-small {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.update__btn{
+  background-color: rgb(128, 113, 74);
+  color: $white;
+  box-shadow: 4px 4px 20px $black_shadow;
+  font-size: 15px;
+  width: 120px;
+  height: 23px;
+  font-weight: 30px;
+  margin-right: 7px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  }
+  .update__btn a{
+    color: $white;
+    text-decoration: none;
+    }
+

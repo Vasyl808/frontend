@@ -1,0 +1,82 @@
+@import "mixines.scss";
+@import "product-list.scss";
+@import "product.scss";
+.card {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    
+    &__wrapper {
+        margin-left: 60px;
+        width: 300px;
+        height: 230px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    &__subtotal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__subtotal-title {
+        font-size: 19px;
+    }
+
+    &__subtotal-price {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    &__subtitle {
+        margin-top: 5px;
+        font-size: 17px;
+        color: #999;
+    }  text-decoration: none;
+}
+
+tbody {
+    vertical-align: top;
+}
+
+td {
+    padding: 20px;
+    text-align: center;
+}
+
+.trash {
+    cursor: pointer;
+}
+
+.card tr td img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 992px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+
+        &__wrapper {
+            margin: 40px auto 0 auto;
+        }
+
+        h2 {
+            margin: 0 auto;
+        }
+    }   
+}
+
+@media only screen and (max-width: 576px) {
+    th {
+        padding: 10px;
+    }
+
+    td {
+        padding: 0;
+    }
+}
