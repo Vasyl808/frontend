@@ -3,6 +3,7 @@ import { Formik, Form, useField, Field } from 'formik';
 import * as Yup from "yup";
 import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
+import error_handler from '../utils/utils'
 
 import '../styles/checkout.scss';
 
@@ -83,6 +84,7 @@ const Checkout = () => {
               body: JSON.stringify(details),
               headers,
             }).catch((error) => {
+              error_handler(error);
               console.error('There was a problem with the network request:', error);
             })
           );
@@ -94,14 +96,19 @@ const Checkout = () => {
             localStorage.setItem('totalAmount', 0);
             localStorage.setItem('totalQuantity', 0);
             //alert('Покупка пройшла успішно');
-            toast.success("Покупка пройшла успішно");
+            toast.success("The purchase was successful", {
+              position: toast.POSITION.TOP_CENTER,
+            autoClose: 15000 // в мілісекундах
+          });
             window.location.href = '/home';
           })
           .catch((error) => {
+            error_handler(error);
             console.error('There was a problem with the network request:', error);
           });
       })
       .catch((error) => {
+        error_handler(error);
         console.error('There was a problem with the network request:', error);
       });
   };
@@ -158,10 +165,11 @@ const Checkout = () => {
                 defaultValue={userData.email}
               />
               <input
-                placeholder="Phone number"
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                placeholder="Phone number like 123-4567-8901"
                 id="number"
                 name="number"
-                type="text"
                 defaultValue={userData.phone_number}
               />
               <input

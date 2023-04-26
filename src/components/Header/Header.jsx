@@ -29,7 +29,7 @@ const UserIcon = () => (
   
   const LoggedInIcon = () => (
     <div className="header__user">
-      <Link to="/user">
+      <Link to={`/user/${window.localStorage.getItem('id_user')}`}>
         <i className="fa-regular fa-user"></i>
       </Link>
     </div>

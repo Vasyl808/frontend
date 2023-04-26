@@ -1,5 +1,7 @@
 import '../styles/Signup.scss';
 import { useState } from "react";
+import error_handler from '../utils/utils'
+import { toast } from 'react-toastify';
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -24,7 +26,10 @@ function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
     if (confirmPassword !== password) {
-      alert("Пароль не підтверджений");
+      toast.error("Пароль не підтверджений", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 20000 // в мілісекундах
+      });
       return;
     }
 
@@ -49,7 +54,7 @@ function Signup() {
         window.location.href = '/login';
       })
       .catch((error) => {
-        alert(error);
+        error_handler(error);
         console.log(`Fetch error: ${error}`);
       });
   }
@@ -124,9 +129,11 @@ function Signup() {
             <div className="signup__username">Phone number</div>
             <input
               required
-              type="number"
+              type="tel"
+       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               id="phone_number"
               className="signup__input"
+              placeholder="123-4567-8901"
               value={phoneNumber}
               onChange={(event) => setPhoneNumber(event.target.value)}
             />

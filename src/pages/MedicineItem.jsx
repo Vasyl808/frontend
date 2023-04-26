@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {fetchCoffees} from '../redux/slices/medicineSlice';
 import {addItem} from '../redux/slices/medicineSlice';
 import { toast } from 'react-toastify';
-
+import error_handler from '../utils/utils'
 import Spinner from '../components/Spinner/Spinner';
 
 import CommonSection from "../components/UI/CommonSection";
@@ -41,7 +41,7 @@ const MedicineItem = () => {
     }
     console.log(coffeesItem)
 
-    const {medicine_status, name, price, quantity, medicine_description, manufacturer, demand} = coffeesItem
+    const {medicine_status, name, price, quantity, medicine_description, manufacturer, demand, image_url, demand_count} = coffeesItem
     
 
     const addToCard = () => {
@@ -50,7 +50,7 @@ const MedicineItem = () => {
             id: Number(id),
             productName: name,
             price: price,
-            imgUrl: item,
+            imgUrl: image_url,
             quntity_itm: Number(quntity11.value),
             count_quantity: quantity
         }));
@@ -66,8 +66,10 @@ const MedicineItem = () => {
             method: 'PUT', 
             headers,
         })
-        .then(response => {
+        .then(async response => {
             if (!response.ok) {
+                const error = await response.text();
+                throw new Error(error);
                 toast.error("Item available");
             }
             else{
@@ -75,8 +77,8 @@ const MedicineItem = () => {
             window.location.reload();}
         })
         .catch(error => {
-            alert(error)
-            console.error(error)
+            error_handler(error);
+            console.error(error);
         })
     }
 
@@ -86,7 +88,7 @@ const MedicineItem = () => {
             <CommonSection title={name}/>
         
             <section className="coffee">
-                <img src={item} alt="coffee" className="coffee__img" />
+                <img src={coffeesItem.image_url} alt="coffee" className="coffee__img" />
                 
                 <div className="coffee__descr">
                     <h2 className="title-pt-0">{name}</h2>
@@ -126,6 +128,11 @@ const MedicineItem = () => {
                         <b>Is on demand?: </b>{demand ? 'Yes' : 'No'}
                         </div>
                     </div>
+                    {demand ? (<div className="coffee__description">
+                        <div className="coffee__description-value">
+                        <b>Demand count: </b> {demand_count}
+                        </div>
+                    </div>): (<div></div>)}
                     <div className="coffee__description">
                         <div className="coffee__description-value">
                         <b>Quantity: </b>{quantity}

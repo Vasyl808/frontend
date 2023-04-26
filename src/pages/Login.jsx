@@ -1,6 +1,8 @@
 import '../styles/login.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import error_handler from '../utils/utils'
 
 const Login = () => {
 
@@ -41,10 +43,14 @@ const Login = () => {
         localStorage.setItem('userstatus', userstatus);
         localStorage.setItem('token', token);
 
-        window.location.href = '/user';
+        window.location.href = '/user/' + Number(window.localStorage.getItem('id_user'));
       } catch (error) {
+        error_handler(error);
         console.error(error);
-        alert('Provided username or password does not exist!');
+        toast.error('Provided username or password does not exist!', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 20000 // в мілісекундах
+        });
       }
     }
   };

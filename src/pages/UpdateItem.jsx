@@ -1,6 +1,7 @@
 import '../styles/add.scss';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import error_handler from '../utils/utils'
 
 function UpdateItem() {
   const [medicineData, setMedicineData] = useState({});
@@ -12,6 +13,9 @@ function UpdateItem() {
     const [quantity, setQuantity] = useState('');
     const [demand, setDemand] = useState('');
     const [medicine_status, setStatus] = useState('');
+    const [image_url, setImage_url] = useState('');
+    const [demand_count, setDemand_count] = useState(null);
+
   const setMedicine = (medicine) => {
     setMedicineData(medicine);
     setMedicine_name(medicine.medicine_name)
@@ -22,6 +26,8 @@ function UpdateItem() {
     setQuantity(medicine.quantity)
     setDemand(Number(medicine.demand))
     setStatus(medicine.medicine_status)
+    setImage_url(medicine.image_url)
+    setDemand_count(medicine.demand_count)
     console.log(medicine);
   };
   const {id} = useParams();
@@ -36,15 +42,17 @@ function UpdateItem() {
       method: 'GET',
       headers: headers,
     })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        window.location.href = 'login.html';
-      })
+    .then(async response => {
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error);
+      }
+      return response.json();
+    })
       .then((data) => {
         setMedicine(data);
-      });
+      })
+      .catch(error => error_handler(error));
   };
 
   useEffect(() => {
@@ -90,6 +98,12 @@ function UpdateItem() {
     const statusInput = document.querySelector(
       '.add__inputs .add__item:nth-child(8) input'
     );
+    const image_urlInput = document.querySelector(
+      '.add__inputs .add__item:nth-child(9) input'
+    );
+    const demand_countInput = document.querySelector(
+      '.add__inputs .add__item:nth-child(10) input'
+    );
 
     const body = {
       medicine_name: nameInput.value,
@@ -100,6 +114,8 @@ function UpdateItem() {
       quantity: Number(quantityInput.value),
       demand: Number(demandInput.value === '1' ? true : false),
       medicine_status: statusInput.value,
+      image_url: image_urlInput.value,
+      demand_count: demand_countInput.value
     };
 
     updateMedicine(id, body);
@@ -149,6 +165,14 @@ function UpdateItem() {
                 <div className="add__item">
                     <div className="add__name">Status</div>
                     <input type="text" className="add__input" value={medicine_status} onChange={(e) => setStatus(e.target.value)} />
+                </div>
+                <div className="add__item">
+                    <div className="add__name">Image url</div>
+                    <input type="text" className="add__input" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
+                </div>
+                <div className="add__item">
+                    <div className="add__name">Demand count</div>
+                    <input type="text" className="add__input" value={demand_count} onChange={(e) => setDemand_count(e.target.value)} />
                 </div>
                 <button className="add__btn" onClick={handleSubmit}>Update</button>
             </div>

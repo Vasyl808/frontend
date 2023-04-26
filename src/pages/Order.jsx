@@ -2,7 +2,7 @@ import '../styles/order.scss';
 import React, { useState, useEffect } from 'react';
 import { useCallback } from 'react';
 import item_img from '../assets/image/items-img/hilka.jpg'
-import { Modal, Form, Button } from 'react-bootstrap';
+import error_handler from '../utils/utils';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
@@ -51,16 +51,16 @@ const Order = () => {
     deleteOrder()
         .then(async (response) => {
         if (!response.ok) {
-            alert(response)
+            //alert(response)
             throw new Error(await response.text());
         }
             return response.text();
         })
         .then(() => {
-            window.location.href = '/user';
+            window.location.href = '/home';
         })
         .catch((error) => {
-            alert(error)
+            error_handler(error)
             console.log(`Fetch error: ${error}`);
         });
   }
@@ -75,10 +75,10 @@ const Order = () => {
         method: 'DELETE',
         headers,
     })
-    .then( (response) => {
+    .then(async (response) => {
       if (!response.ok) {
-          alert(response)
-          throw new Error( response.text());
+          //alert(response)
+          throw new Error(await response.text());
       }
           return response.text();
       })
@@ -86,7 +86,7 @@ const Order = () => {
           window.location.reload();
       })
       .catch((error) => {
-          alert(error)
+          error_handler(error)
           console.log(`Fetch error: ${error}`);
       });
   }, [])
@@ -135,7 +135,7 @@ const Order = () => {
     updateOrder(body)
         .then(async (response) => {
         if (!response.ok) {
-            alert(response)
+            //alert(response)
             throw new Error(await response.text());
         }
             return response.text();
@@ -145,7 +145,7 @@ const Order = () => {
             window.location.reload();
         })
         .catch((error) => {
-            alert(error)
+            error_handler(error)
             console.log(`Fetch error: ${error}`);
         });
   }
@@ -201,7 +201,12 @@ const Order = () => {
         <div className="orderQ">
         {editMode ? (
               <div className="orderQ__wrapper">
-          
+                <div>
+              Owner: <Link to={`/user/${orderData[0].user_id}`}>Owner</Link>
+            </div>
+            <div>
+              Phone number:<span>{orderData[0].phone}</span>
+            </div>
             <div>
               Total Qty: <span>{orderData[0].total_count} items</span>
             </div>
@@ -243,7 +248,12 @@ const Order = () => {
           </div>
             ) : (
               <div className="orderQ__wrapper">
-          
+            <div>
+              Owner: <Link to={`/user/${orderData[0].user_id}`}>Owner</Link>
+            </div>
+            <div>
+              Phone number:<span>{orderData[0].phone}</span>
+            </div>
             <div>
               Total Qty: <span>{orderData[0].total_count} items</span>
             </div>

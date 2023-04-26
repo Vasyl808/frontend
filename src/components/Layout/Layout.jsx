@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Routers from '../../routers/Routers';
 import Footer from '../Footer/Footer';
+import ScrollToTopButton from '../UI/ScrollToTopButton'
 
 const Layout = () => {
     return (
@@ -8,6 +9,7 @@ const Layout = () => {
             <Header/>
             <div>
                 <Routers/>
+                <ScrollToTopButton/>
             </div>
             <Footer/>
         </>

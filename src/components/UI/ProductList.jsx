@@ -9,7 +9,7 @@ import '../../styles/product-list.scss';
 
 import image from '../../assets/image/items-img/hilka.jpg';
 
-const ProductList = ({id, name, medicine_status, price, quantity}) => {
+const ProductList = ({id, name, medicine_status, price, quantity, image_url}) => {
 
     const addToCard = () => {
         dispatch(addItem({
@@ -17,7 +17,7 @@ const ProductList = ({id, name, medicine_status, price, quantity}) => {
             productName: name,
             price: price,
             medicine_status, medicine_status,
-            imgUrl: image,
+            imgUrl: image_url,
             quntity_itm: Number(1),
             count_quantity: quantity
         }));
@@ -31,7 +31,7 @@ const ProductList = ({id, name, medicine_status, price, quantity}) => {
         <>
             <div className="product__block">
                 <Link to={`/shop/${id}`}>
-                    <img src={image} alt="" className='product__img' />
+                    <img src={image_url} alt="" className='product__img' />
                 </Link>
                 <Link to={`/shop/${id}`} className='product__link'>
                     <div className="product__title">

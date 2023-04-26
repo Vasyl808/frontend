@@ -17,6 +17,7 @@ import UpdateItem from '../pages/UpdateItem'
 import ShoppingList from '../pages/ShoppingList'
 import Order from '../pages/Order'
 import UserOrderList from '../pages/UserOrderList'
+import Category from '../pages/Category'
 
 const Routers = () => {
     return (
@@ -29,16 +30,17 @@ const Routers = () => {
                 <Route path='shoping-card' element={<ShopingCard/>}/>
                 <Route path='checkout' element={<Checkout/>}/>
                 <Route path='login' element={<Login/>}/>
-                <Route path='user' element={<User/>}/>
+                <Route path='user/:id' element={<User/>}/>
                 <Route path='sign-up' element={<Signup/>}/>
-                <Route path='update-user' element={<UpdateUser/>}/>
+                <Route path='update-user/:id' element={<UpdateUser/>}/>
                 <Route path='admin' element={<Admin/>}/>
                 <Route path='add' element={<Add/>}/>
                 <Route path='update' element={<Update/>}/>
                 <Route path='update-item/:id' element={<UpdateItem/>}/>
                 <Route path='shopping-list' element={<ShoppingList/>}/>
                 <Route path='order/:id' element={<Order/>}/>
-                <Route path='user-shopping-list' element={<UserOrderList/>}/>
+                <Route path='user-shopping-list/:id' element={<UserOrderList/>}/>
+                <Route path='category' element={<Category/>}/>
         </Routes>
     )
 }   

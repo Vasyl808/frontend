@@ -28,6 +28,7 @@ const ShopingCard = () => {
     }, []);
     const totalAmount = useSelector(state => state.coffees.totalAmount);
     const items = useSelector(state => state.coffees.cartItems);
+    
     return (
         <>
         <CommonSection title='Shoping Card'/>

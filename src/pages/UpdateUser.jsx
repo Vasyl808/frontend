@@ -1,13 +1,17 @@
 import '../styles/update-user.scss';
-
+import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import error_handler from '../utils/utils'
 
 function UpdateUser() {
   const [userData, setUserData] = useState({});
+  const {id} = useParams();
+  const id_user = id;
 
   useEffect(() => {
     const token = window.localStorage.getItem('token');
-    const id_user = window.localStorage.getItem('id_user');
+    //const id_user = window.localStorage.getItem('id_user');
     const headers = new Headers();
     headers.set('Authorization', 'Basic ' + token);
     headers.set('content-type', 'application/json');
@@ -16,22 +20,28 @@ function UpdateUser() {
       method: 'GET',
       headers: headers,
     })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        window.location.href = '/login';
+      .then(async response => {
+          if (!response.ok) {
+              //alert('Provided username or password does not exist!');
+              throw new Error(await response.text())
+          }
+          return response.json()
       })
       .then((data) => {
         setUserData(data.user);
-      });
+      })
+      .catch(error => {
+        //alert(error)
+        error_handler(error)
+        console.error(error)
+    });
   }, []);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const token = window.localStorage.getItem('token');
-    const id_user = window.localStorage.getItem('id_user');
+    //const id_user = window.localStorage.getItem('id_user');
     const headers = new Headers();
     headers.set('Authorization', 'Basic ' + token);
     headers.set('content-type', 'application/json');
@@ -48,27 +58,25 @@ function UpdateUser() {
             method: 'PUT',
             body: JSON.stringify(entry),
             headers: headers
-        }).then(response => {
-            if (response.status === 200) {
+        })
+        .then( async (response) => {
+          if (!response.ok) {
+            throw new Error( await response.text());
+          }
+          return response.text();
+        })
+        .then(() => {
                 //current_user.username = request_body['username'];
                 //current_user.password = request_body['password'];
                 //window.localStorage.setItem('loggedIn_user', JSON.stringify(current_user));
                 //window.localStorage.clear();
                 window.location.href = '/user';
-            }
-            else {
-                response.text().then((data) => {
-                    throw data;
-                }).catch(e => {
-                    if (e) {
-                        alert(e);
-                    }
-                });
-            }
-        }).catch(e => {
-            alert(e)
-            console.log(e)
+            
         })
+        .catch((error) => {
+          error_handler(error);
+          console.log(`Fetch error: ${error}`);
+        });
     }
     else{
         const entry = {
@@ -84,28 +92,24 @@ function UpdateUser() {
             method: 'PUT',
             body: JSON.stringify(entry),
             headers: headers
-        }).then(response => {
-            if (response.status === 200) {
+        }).then( async (response) => {
+          if (!response.ok) {
+            throw new Error( await response.text());
+          }
+          return response.text();
+        })
+        .then(() => {
                 //current_user.username = request_body['username'];
                 //current_user.password = request_body['password'];
                 //window.localStorage.setItem('loggedIn_user', JSON.stringify(current_user));
-                window.localStorage.clear();
-                window.location.href = '/login';
-            }
-            else {
-                response.text().then((data) => {
-                    throw data;
-                }).catch(e => {
-                    if (e) {
-                        alert(e);
-                        console.log(e);
-                    }
-                });
-            }
-        }).catch(e => {
-            alert(e);
-            console.log(e)
+                //window.localStorage.clear();
+                window.location.href = '/user';
+            
         })
+        .catch((error) => {
+          error_handler(error);
+          console.log(`Fetch error: ${error}`);
+        });
     }
   };
 

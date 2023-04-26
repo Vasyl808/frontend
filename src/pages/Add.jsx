@@ -1,5 +1,6 @@
 import '../styles/add.scss';
 import { useState } from 'react';
+import error_handler from '../utils/utils'
 
 function Add() {
   const [name, setName] = useState('');
@@ -10,6 +11,8 @@ function Add() {
   const [price, setPrice] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [demand, setDemand] = useState(0);
+  const [image_url, setImage_url] = useState('');
+  const [demand_count, setDemand_count] = useState(null);
 
   const handleAddItem = async (event) => {
     event.preventDefault();
@@ -23,6 +26,8 @@ function Add() {
       price,
       quantity,
       demand,
+      image_url,
+      demand_count
     };
 
     const token = window.localStorage.getItem('token');
@@ -44,7 +49,7 @@ function Add() {
       //window.localStorage.setItem('current_user', JSON.stringify(entry));
       window.location.href = '/admin';
     } catch (error) {
-      alert(error);
+      error_handler(error);
       console.log(`Fetch error: ${error}`);
     }
   };
@@ -138,6 +143,18 @@ function Add() {
               />
             </div>
             <div className="add__item">
+              <div className="add__name">Demand count</div>
+              <input
+                type="number"
+                className="add__input"
+                min="1"
+                max="50000"
+                id="demand_count"
+                value={demand_count}
+                onChange={(e) => setDemand_count(e.target.value)}
+              />
+            </div>
+            <div className="add__item">
               <div className="add__name">Demand</div>
               <input
                 type="number"
@@ -147,6 +164,16 @@ function Add() {
                 id="demand"
                 value={demand}
                 onChange={(e) => setDemand(e.target.value)}
+              />
+            </div>
+            <div className="add__item">
+              <div className="add__name">Image url</div>
+              <input
+                type="text"
+                className="add__input"
+                id="image_url"
+                value={image_url}
+                onChange={(e) => setImage_url(e.target.value)}
               />
             </div>
             <button class="add__btn" onClick={handleAddItem}>ADD</button>

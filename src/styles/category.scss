@@ -1,0 +1,102 @@
+@import "mixines.scss";
+@import "product.scss";
+@import "product-list.scss";
+@import "shoping-card.scss";
+@import "color.scss";
+@import "login.scss";
+
+.delete__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.img-small {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.update__btn{
+  background-color: rgb(128, 113, 74);
+  color: $white;
+  box-shadow: 4px 4px 20px $black_shadow;
+  font-size: 15px;
+  width: 120px;
+  height: 23px;
+  font-weight: 30px;
+  margin-right: 7px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  }
+  .update__btn a{
+    color: $white;
+    text-decoration: none;
+    }
+
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        margin-right: 200px;
+        width: 200px;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__btn {
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        height: 40px;
+        background-color: rgb(128, 113, 74);
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: $white;
+    }
+
+    &__btn a {
+        text-decoration: none;
+        color: $white;
+    }
+
+    &__info {
+        width: 250px;
+    }
+
+    &__info-title {
+        text-align: center;
+    }
+    
+    &__info-block {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    &__info__name{
+        margin-right: 10px;
+    }
+}

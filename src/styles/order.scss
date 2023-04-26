@@ -3,18 +3,18 @@
 @import "shoping-card.scss";
 @import "checkout.scss";
 
-table {
+.table {
     margin-top: 40px;
     margin-right: 60px;
 }
 
 .orderQ {
     margin-top: 40px;
-    height: 400px;
+    height: 500px;
     width: 400px;
     background-color: #f0923f;
     border-radius: 20px;
-    padding: 40px;
+    padding: 20px;
     font-size: 20px;
     font-weight: 700;
     span {
