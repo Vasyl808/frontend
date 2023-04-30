@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/shoping-list.scss';
+//import '../styles/shoping-list.scss';
 import error_handler from '../utils/utils'
 
 function ShoppingList() {
@@ -117,22 +117,22 @@ switch(filter) {
                         </div>
 
                         <div className="filter__country-block-btn">
-                            <button className='btn' onClick={all}>
+                            <button className='btn' data-testid='all_btn' onClick={all}>
                                 All
                             </button>
-                            <button className='btn' onClick={filter_placed}>
+                            <button className='btn' data-testid='placed_btn' onClick={filter_placed}>
                                 Placed
                             </button>
-                            <button className="btn" onClick={filter_approved}>
+                            <button className="btn" data-testid='approved_btn' onClick={filter_approved}>
                                 Approved
                             </button>
-                            <button className='btn' onClick={filter_delivered}>
+                            <button className='btn' data-testid='delivered_btn' onClick={filter_delivered}>
                                 Delivered
                             </button>
-                            <button className='btn' onClick={filter_complete}>
+                            <button className='btn' data-testid='complete_btn' onClick={filter_complete}>
                                 Complete
                             </button>
-                            <button className='btn' onClick={filter_not_complete}>
+                            <button className='btn' data-testid='not_complete_btn' onClick={filter_not_complete}>
                                 Not complete
                             </button>
                         </div>
@@ -142,7 +142,7 @@ switch(filter) {
 
       <div className="list">{
         filteredOrders.length === 0 ? (<h2 className='fs-4 text-center'>No item</h2>) : (
-          <div className="list__wrapper">
+          <div data-testid='list_orders' className="list__wrapper">
           {filteredOrders.map((order, index) => (
             <div key={index} className="list__block">
                 <button>

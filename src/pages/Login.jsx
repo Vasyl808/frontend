@@ -1,4 +1,4 @@
-import '../styles/login.scss';
+//import '../styles/login.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -68,13 +68,13 @@ const Login = () => {
           <h2 className="login__title">Login</h2>
           <div className="login__username-block">
             <div className="login__username">Username</div>
-            <input required type="text" id="username" className="login__input" />
+            <input required type="text" data-testid='username' id="username" className="login__input" />
           </div>
           <div className="login__password-block">
             <div className="login__username">Password</div>
-            <input required type="password" id="password" className="login__input" />
+            <input required type="password" data-testid='password' id="password" className="login__input" />
           </div>
-          <button type="submit" className="login__btn">Login</button>
+          <button type="submit" data-testid='login_btn' className="login__btn">Login</button>
           <div className="login__signup">
             <div className="login__descr">Don't have an account?</div>
             <Link className='login__link' to='/sign-up'>Sign Up</Link>

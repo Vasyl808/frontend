@@ -1,4 +1,4 @@
-import '../styles/add.scss';
+//import '../styles/add.scss';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import error_handler from '../utils/utils'
@@ -119,7 +119,8 @@ function UpdateItem() {
     };
 
     updateMedicine(id, body);
-    window.location.href = '/shop/' + id
+    window.location.reload();
+    window.location.href = '/home'
   };
 
   return (
@@ -136,45 +137,45 @@ function UpdateItem() {
           <div className="add__inputs">
                 <div className="add__item">
                     <div className="add__name">Name</div>
-                    <input type="text" className="add__input" value={medicine_name} onChange={(e) => setMedicine_name(e.target.value)} />
+                    <input type="text" data-testid="medicine_name" className="add__input" value={medicine_name} onChange={(e) => setMedicine_name(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Manufacturer</div>
-                    <input type="text" className="add__input" value={manufacturer} onChange={(e) => setManufacturer(e.target.value)} />
+                    <input type="text" data-testid="manufacturer" className="add__input" value={manufacturer} onChange={(e) => setManufacturer(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Description</div>
-                    <input type="text" className="add__input" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" data-testid="description" className="add__input" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Category id</div>
-                    <input type="number" className="add__input" min="1" max="50" value={categoryId} onChange={(e) => setCategoryId(e.target.value)} />
+                    <input type="number" data-testid="categoryId" className="add__input" min="1" max="50" value={categoryId} onChange={(e) => setCategoryId(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Price</div>
-                    <input type="number" className="add__input" min="1" max="5000" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="number" data-testid="price" className="add__input" min="1" max="5000" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Quantity</div>
-                    <input type="number" className="add__input" min="1" max="5000" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+                    <input type="number" data-testid="quantity" className="add__input" min="1" max="5000" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Demand</div>
-                    <input type="number" className="add__input"  min="0" max="1" value={demand} onChange={(e) => setDemand(e.target.value)} />
+                    <input type="number" data-testid="demand" className="add__input"  min="0" max="1" value={demand} onChange={(e) => setDemand(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Status</div>
-                    <input type="text" className="add__input" value={medicine_status} onChange={(e) => setStatus(e.target.value)} />
+                    <input type="text" data-testid="medicine_status" className="add__input" value={medicine_status} onChange={(e) => setStatus(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Image url</div>
-                    <input type="text" className="add__input" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
+                    <input type="text" data-testid="image_url" className="add__input" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
                 </div>
                 <div className="add__item">
                     <div className="add__name">Demand count</div>
-                    <input type="text" className="add__input" value={demand_count} onChange={(e) => setDemand_count(e.target.value)} />
+                    <input type="text" data-testid="demand_count" className="add__input" value={demand_count} onChange={(e) => setDemand_count(e.target.value)} />
                 </div>
-                <button className="add__btn" onClick={handleSubmit}>Update</button>
+                <button className="add__btn"  data-testid="update_btn" onClick={handleSubmit}>Update</button>
             </div>
         </div>
     </div>

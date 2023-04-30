@@ -1,13 +1,14 @@
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Provider } from 'react-redux';
+import store from '../../redux/store'; // імпортуйте ваш Redux store
 import {fetchCoffees} from '../../redux/slices/medicineSlice';
 
 import ProductList from './ProductList';
 import Spinner from '../Spinner/Spinner';
 
-import '../../styles/product.scss';
+//import '../../styles/product.scss';
 
 
 const Product = () => {

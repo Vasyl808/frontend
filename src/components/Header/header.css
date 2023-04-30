@@ -1,0 +1,77 @@
+.header {
+  top: 30px;
+  left: 128px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+.header__menu {
+  width: 355px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header__logo {
+  width: 35px;
+  height: 35px;
+  padding-left: 12px;
+}
+.header__nav, .header a {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+.header__nav-active {
+  font-weight: 700;
+}
+.header__shop {
+  margin: 15px 0 0 600px;
+  cursor: pointer;
+}
+.header__shop-icons {
+  position: relative;
+}
+.header__img {
+  width: 30px;
+  height: 30px;
+}
+.header__shop-icon {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+.header__shop-icon a i {
+  font-size: 28px;
+}
+.header__shop-icon.clicked {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-out;
+}
+.header__badge {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: brown;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__user {
+  margin-top: 10px;
+  margin-left: 6px;
+  color: rgb(255, 255, 255);
+}
+.header__user a {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+}/*# sourceMappingURL=header.css.map */

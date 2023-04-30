@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {filteredCoffeesByName, filteredCoffeesByCoutry, reset} from '../redux/slices/medicineSlice';
@@ -9,7 +9,7 @@ import Product from "../components/UI/Product";
 
 import worker from '../assets/image/items-img/worker.jpg';
 
-import '../styles/our-products.scss';
+//import '../styles/our-products.scss';
 
 const OurProduct = () => {
 
@@ -65,16 +65,16 @@ const OurProduct = () => {
                         </div>
 
                         <div className="filter__country-block-btn">
-                            <button className='btn' onClick={all}>
+                            <button className='btn' data-testid='all_btn' onClick={all}>
                                 All
                             </button>
-                            <button className="btn" onClick={filteredByCountryAvailable}>
+                            <button className="btn" data-testid='all_available' onClick={filteredByCountryAvailable}>
                                 Available
                             </button>
-                            <button className='btn' onClick={filteredByCountryPending}>
+                            <button className='btn' data-testid='all_pending' onClick={filteredByCountryPending}>
                                 Pending
                             </button>
-                            <button className='btn' onClick={filteredByCountrySold}>
+                            <button className='btn' data-testid='sold_btn' onClick={filteredByCountrySold}>
                                 Sold
                             </button>
                         </div>

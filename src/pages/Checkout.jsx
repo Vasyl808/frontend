@@ -5,12 +5,13 @@ import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 import error_handler from '../utils/utils'
 
-import '../styles/checkout.scss';
+//import '../styles/checkout.scss';
 
 const Checkout = () => {
 
     const [userData, setUserData] = useState({});
-    const [total, setTotal] = useState({});
+    const [total, setTotal] = useState(null);
+    const [totalprice, setTotalprice] = useState(null);
 
 
     useEffect(() => {
@@ -31,11 +32,17 @@ const Checkout = () => {
           window.location.href = '/login';
         })
         .then((data) => {
+          console.log(data.user);
           setUserData(data.user);
-        });
+        })
+        .catch(error => {
+          //alert(error)
+          error_handler(error)
+          console.error(error)
+      });;
         loadTotal();
-        const button = document.getElementById("buy")
-        button.addEventListener('click', start);
+        //const button = document.getElementById("buy")
+        //button.addEventListener('click', start);
     }, []);
 
   const start = (event) => {
@@ -58,9 +65,10 @@ const Checkout = () => {
       body: JSON.stringify(body),
       headers,
     })
-      .then((response) => {
+      .then(async response => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          const error = await response.text();
+          error_handler(error);
         }
         return response.json();
       })
@@ -119,13 +127,8 @@ const Checkout = () => {
     if (cartData === null){
         let total_count = 0;
         let total_price = 0;
-        var checkoutWrapper = document.querySelector(".checkout__wrapper");
-        var html = '<div>Total Qty: <span>' + total_count + ' items</span></div>' +
-           '<div>Subtotal: <span>' + '$' + total_price + '</span></div>' +
-           '<div>Shipping: <span>' +  '$' + 0 + '</span></div>' +
-           '<div>Total cost: <span>' + '$' + total_price + '</span></div>' +
-           '<button class="buy__btn-w-150" type="button" id="buy" onClick={start}>Place an order</button>';
-        checkoutWrapper.innerHTML = html;
+        setTotal(total_count);
+        setTotalprice(total_price);
     }
     else{
         let total_count = 0;
@@ -134,13 +137,8 @@ const Checkout = () => {
             total_count += Number(item.quantity);
             total_price += Number(item.price);
         })
-        var checkoutWrapper = document.querySelector(".checkout__wrapper");
-        var html = '<div>Total Qty: <span>' + Number(total_count) + ' items</span></div>' +
-            '<div>Subtotal: <span>' + '$' + Number(total_price) + '</span></div>' +
-            '<div>Shipping: <span>' + '$' + 0 + '</span></div>' +
-            '<div>Total cost: <span>' + '$' + Number(total_price) + '</span></div>' +
-            '<button class="buy__btn-w-150" type="button" id="buy" onClick={start}>Place an order</button>';
-        checkoutWrapper.innerHTML = html;
+        setTotal(total_count);
+        setTotalprice(total_price);
     }
   }
     return (
@@ -148,9 +146,10 @@ const Checkout = () => {
           <section className="bgc">
             <h2 className="bgc__title">Checkout</h2>
           </section>
-          <form className="form">
+          <form className="form" onSubmit={start} >
             <div className="input__wrapper">
               <input
+              required
                 placeholder="Enter your name"
                 id="name"
                 name="name"
@@ -158,6 +157,7 @@ const Checkout = () => {
                 defaultValue={userData.first_name}
               />
               <input
+              required
                 placeholder="Enter your email"
                 id="email"
                 name="email"
@@ -165,14 +165,15 @@ const Checkout = () => {
                 defaultValue={userData.email}
               />
               <input
+              required
               type="tel"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="Phone number like 123-4567-8901"
                 id="number"
                 name="number"
                 defaultValue={userData.phone_number}
               />
               <input
+              required
                 placeholder="Street address"
                 id="street"
                 name="street"
@@ -180,12 +181,14 @@ const Checkout = () => {
               />
               <input placeholder="City" id="city" name="city" type="text" />
               <input
+              required
                 placeholder="Postal code"
                 id="code"
                 name="code"
                 type="number"
               />
               <input
+              required
                 placeholder="Country"
                 id="country"
                 name="country"
@@ -195,7 +198,21 @@ const Checkout = () => {
     
             <div className="checkout">
               <div className="checkout__wrapper">
-                
+              <div>Total Qty: 
+                    <span> {total} items</span>
+                </div>
+                <div>Subtotal: 
+                    <span> ${totalprice}</span>
+                </div>
+                <div>Shipping:
+                    <span> $0</span>
+                </div>
+                <div>Total cost: 
+                    <span> ${totalprice}</span>
+                </div>
+                <button type='submit' data-testid='buy' class="buy__btn-w-150">
+                    Place an order
+                </button>
               </div>
             </div>
           </form>

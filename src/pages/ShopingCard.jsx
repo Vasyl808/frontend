@@ -8,7 +8,7 @@ import {fetchCoffees} from '../redux/slices/medicineSlice';
 
 import CommonSection from "../components/UI/CommonSection";
 
-import '../styles/shoping-card.scss';
+//import '../styles/shoping-card.scss';
 
 const UserIcon = () => (
     <Link to='/checkout'>Checkout</Link>
@@ -105,48 +105,6 @@ const Tr = ({item}) => {
         dispatch(count_minus(item.id));
     }
 
-    function count_add_q(medicine_id){
-        let cartItems = JSON.parse(window.localStorage.getItem("cartItems")); 
-        //console.log(cartItems)
-        let cartItem = cartItems.find(item => item.id == Number(medicine_id));
-        if (cartItem) {
-          cartItem.quantity = Number(cartItem.quantity) + 1;
-        }
-
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        localStorage.setItem('totalAmount', Number(localStorage.getItem('totalAmount')) + cartItem.price);
-        localStorage.setItem('totalQuantity', Number(localStorage.getItem('totalQuantity')) + 1);
-        window.location.reload()
-    }
-    
-    function count_minus_q(medicine_id){
-        let cartItems = JSON.parse(window.localStorage.getItem("cartItems")); 
-        //console.log(cartItems)
-        let cartItem = cartItems.find(item => item.id == Number(medicine_id));
-        //console.log(cartItem);
-        if (cartItem) {
-          cartItem.quantity = Number(cartItem.quantity) - 1;
-          //console.log(cartItem.quantity === 0)
-          if(cartItem.quantity === 0){
-            let cartItems = JSON.parse(window.localStorage.getItem("cartItems")); 
-            const index = cartItems.findIndex(item => item.id == medicine_id);
-            if (index !== -1) {
-              cartItems.splice(index, 1);
-            }
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            localStorage.setItem('totalAmount', Number(localStorage.getItem('totalAmount')) - cartItem.price);
-            localStorage.setItem('totalQuantity', Number(localStorage.getItem('totalQuantity')) - 1);
-            window.location.reload()
-          }
-          else{
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            localStorage.setItem('totalAmount', Number(localStorage.getItem('totalAmount')) - cartItem.price);
-            localStorage.setItem('totalQuantity', Number(localStorage.getItem('totalQuantity')) - 1);
-            window.location.reload()
-        }
-        }
-    }
-
     return (
         <tr>
             <td>
@@ -156,14 +114,14 @@ const Tr = ({item}) => {
             <td>${item.price}</td>
             <td>{item.quantity}px</td>
             <td>
-                <div class="fa-solid" onClick={count_add_f}> + </div>
+                <div class="fa-solid" data-testid="count_add_btn" onClick={count_add_f}> + </div>
             </td>
             <td>
-                <div class="fa-solid" onClick={count_minus_f}> &#8722; </div>
+                <div class="fa-solid" data-testid="count_minus_btn" onClick={count_minus_f}> &#8722; </div>
             </td>
             <td>
-                <motion.div whileTap={{scale: 1.3}}>
-                    <FaTrashAlt onClick={deleteProduct} className="trash"/>
+                <motion.div data-testid="delete_medicine_btn" whileTap={{scale: 1.3}}>
+                    <FaTrashAlt  onClick={deleteProduct} className="trash"/>
                 </motion.div>
             </td>
         </tr>

@@ -9,9 +9,9 @@ const initialState = coffeesAdapter.getInitialState({
     coffeesLoadingStatus: 'idle',
     coffees: [],
     filteredCoffees: [],
-    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
-    totalAmount: localStorage.getItem('totalAmount') ? parseFloat(localStorage.getItem('totalAmount')) : 0,
-    totalQuantity: localStorage.getItem('totalQuantity') ? parseInt(localStorage.getItem('totalQuantity')) : 0,
+    cartItems: window.localStorage.getItem('cartItems') ? JSON.parse(window.localStorage.getItem('cartItems')) : [],
+    totalAmount: window.localStorage.getItem('totalAmount') ? parseFloat(window.localStorage.getItem('totalAmount')) : 0,
+    totalQuantity: window.localStorage.getItem('totalQuantity') ? parseInt(window.localStorage.getItem('totalQuantity')) : 0,
 })
  
 export const fetchCoffees = createAsyncThunk(

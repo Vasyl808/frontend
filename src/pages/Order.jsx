@@ -1,4 +1,4 @@
-import '../styles/order.scss';
+//import '../styles/order.scss';
 import React, { useState, useEffect } from 'react';
 import { useCallback } from 'react';
 import item_img from '../assets/image/items-img/hilka.jpg'
@@ -111,28 +111,12 @@ const Order = () => {
   async function confirm(event){
     event.preventDefault();
     setEditMode(false);
-    const order_status = document.getElementById('order_status')
-    const address = document.getElementById('address')
-    const complete = document.getElementById('complete')
-    const date = document.getElementById('date')
-    const date1 = new Date(date.value);
-    const formattedValue = format(date1, 'yyyy-MM-dd HH:mm:ss');
-    let complete1 = false
-    if (Number(complete.value) === 0){
-       complete1 = false
-    }
-    else{
-       complete1 = true
-    }
-    
-    const body = {
-      order_status:order_status.value,
-      address: address.value,
-      complete: complete1,
-      shipData: formattedValue
-    }
-
-    updateOrder(body)
+    if(localStorage.getItem('userstatus') === "user"){
+      const address = document.getElementById('address')
+      const body = {
+        address: address.value,
+      }
+      updateOrder(body)
         .then(async (response) => {
         if (!response.ok) {
             //alert(response)
@@ -148,6 +132,45 @@ const Order = () => {
             error_handler(error)
             console.log(`Fetch error: ${error}`);
         });
+    }
+    else if(localStorage.getItem('userstatus') === "pharmacist"){
+        const order_status = document.getElementById('order_status')
+      const address = document.getElementById('address')
+      const complete = document.getElementById('complete')
+      const date = document.getElementById('date')
+      const date1 = new Date(date.value);
+      const formattedValue = format(date1, 'yyyy-MM-dd HH:mm:ss');
+      let complete1 = false
+      if (Number(complete.value) === 0){
+        complete1 = false
+      }
+      else{
+        complete1 = true
+      }
+      const body = {
+        order_status:order_status.value,
+        address: address.value,
+        complete: complete1,
+        shipData: formattedValue
+      }
+      updateOrder(body)
+        .then(async (response) => {
+        if (!response.ok) {
+            //alert(response)
+            throw new Error(await response.text());
+        }
+            return response.text();
+        })
+        .then(() => {
+            toast.success("Success edit");
+            window.location.reload();
+        })
+        .catch((error) => {
+            error_handler(error)
+            console.log(`Fetch error: ${error}`);
+        });
+    }
+    
   }
 
   if (orderData === null) {
@@ -191,7 +214,7 @@ const Order = () => {
               <td>{item.count}px</td>
               <td>
                   <div>
-                      <i className="fa-solid fa-trash" onClick={() => handleClick(item.medicine_id)}></i>
+                      <i className="fa-solid fa-trash" data-testid='eldet_btn' onClick={() => handleClick(item.medicine_id)}></i>
                   </div>
               </td>
               </tr>
@@ -241,7 +264,7 @@ const Order = () => {
                 Reject
               </button>
               <i className='dist'></i>
-              <button type="submit" className="buy__btn-w-150" onClick={confirm}>
+              <button type="submit" data-testid='sace_btn' className="buy__btn-w-150" onClick={confirm}>
                 Confirm
               </button>
             </div>
@@ -273,10 +296,10 @@ const Order = () => {
               Ship date: <span>{orderData[0].shipData}</span>
             </div>
             <div>
-              <button type="submit" className="buy__btn-w-150" onClick={handleEditClick}>
+              <button type="submit" data-testid='edit_btn' className="buy__btn-w-150" onClick={handleEditClick}>
                 Edit order
               </button>
-              <i className='smitia'><i className="fa-solid fa-trash" onClick={delete_order}></i></i> 
+              <i className='smitia'><i className="fa-solid fa-trash" data-testid='delete_btn' onClick={delete_order}></i></i> 
               
             </div>
           </div>

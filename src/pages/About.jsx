@@ -1,7 +1,7 @@
 import AboutGoods from '../components/UI/AboutGoods';
 import Product from '../components/UI/Product';
-
-import '../styles/about.scss';
+import React from 'react';
+//import '../styles/about.scss';
 
 import cup from '../assets/image/img/cup.png';
 
@@ -18,8 +18,8 @@ const About = () => {
             </section>
 
             <hr className='hr-big'/>
-
-            <Product/>
+            <div data-testid="product"><Product/></div>
+            
         </>
     )
 }

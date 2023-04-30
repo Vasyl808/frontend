@@ -1,7 +1,8 @@
-import '../styles/Signup.scss';
+//import '../styles/Signup.scss';
 import { useState } from "react";
 import error_handler from '../utils/utils'
 import { toast } from 'react-toastify';
+import React from 'react';
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -73,6 +74,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">First name</div>
             <input
+            data-testid="first_name"
               required
               type="text"
               id="first_name"
@@ -84,6 +86,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Last name</div>
             <input
+            data-testid="last_name"
               required
               type="text"
               id="last_name"
@@ -95,6 +98,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Username</div>
             <input
+            data-testid="username"
               required
               type="text"
               id="username"
@@ -106,6 +110,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Email</div>
             <input
+            data-testid="email"
               required
               type="email"
               id="email"
@@ -117,6 +122,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Age</div>
             <input
+            data-testid="age"
               required
               type="number"
               id="age"
@@ -128,6 +134,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Phone number</div>
             <input
+            data-testid="phone_number"
               required
               type="tel"
        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -141,6 +148,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Password</div>
             <input
+            data-testid="password"
               required
               type="password"
               id="password"
@@ -152,6 +160,7 @@ function Signup() {
           <div className="signup__username-block">
             <div className="signup__username">Confirm password</div>
             <input
+            data-testid="confirm_password"
               required
               type="password"
               id="confirm_password"
@@ -160,7 +169,7 @@ function Signup() {
               onChange={(event) => setConfirmPassword(event.target.value)}
             />
           </div>
-          <button class="signup__btn" type="submit" onClick={handleSubmit}>Sign Up</button>
+          <button data-testid="signup_btn" class="signup__btn" type="submit" onClick={handleSubmit}>Sign Up</button>
         </form>
     </div>
     </>

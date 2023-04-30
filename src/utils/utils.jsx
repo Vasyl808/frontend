@@ -18,14 +18,11 @@ function error_handler(error){
               autoClose: 20000 // в мілісекундах
           });
         } catch (e) {
-          toast.error(error.message, {
-            position: toast.POSITION.TOP_CENTER,
-          autoClose: 20000 // в мілісекундах
-        });
-        }
+          toast.error(e);
+        };
       } else {
-          toast.error(error.message, {
-            position: toast.POSITION.TOP_CENTER,
+          toast.error(String(error), {
+          position: toast.POSITION.TOP_CENTER,
           autoClose: 20000 // в мілісекундах
         });
       }

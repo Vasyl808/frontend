@@ -1,4 +1,4 @@
-import '../styles/admin.scss';
+//import '../styles/admin.scss';
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import error_handler from '../utils/utils'

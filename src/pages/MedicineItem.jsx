@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {fetchCoffees} from '../redux/slices/medicineSlice';
 import {addItem} from '../redux/slices/medicineSlice';
@@ -12,7 +12,7 @@ import Beans from "../components/UI/Beans";
 
 import item from '../assets/image/items-img/hilka.jpg'
 
-import '../styles/coffee-item.scss';
+//import '../styles/coffee-item.scss';
 
 const MedicineItem = () => {
 
@@ -69,6 +69,7 @@ const MedicineItem = () => {
         .then(async response => {
             if (!response.ok) {
                 const error = await response.text();
+                error_handler(error);
                 throw new Error(error);
                 toast.error("Item available");
             }
@@ -154,13 +155,13 @@ const MedicineItem = () => {
                             {price}$
                         </div>
 
-                        <button className='buy__btn' onClick={addToCard}>Add to card</button>
+                        <button className='buy__btn' data-testid='add_to_card_btn' onClick={addToCard}>Add to card</button>
                     </div>
                     <div class="coffee__price">
                     <div class="coffee__price-title">
                         Not available?:
                     </div>
-                    <button class='demand__btn' onClick={addToDemand}>Add to demand</button> 
+                    <button class='demand__btn' data-testid='add_to_demand_btn' onClick={addToDemand}>Add to demand</button> 
                 </div>
                 </div>
             </section>

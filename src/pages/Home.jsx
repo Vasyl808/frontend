@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import React from 'react';
 import {fetchCoffees} from '../redux/slices/medicineSlice';
 import Spinner from '../components/Spinner/Spinner';
 import Beans from '../components/UI/Beans';
@@ -9,7 +9,7 @@ import ProductList from '../components/UI/ProductList'
 
 import logo from '../assets/icons/logo1.svg';
 
-import '../styles/home.scss';
+//import '../styles/home.scss';
 
 const Home = () => {
     const coffeesItems = useSelector(state => state.coffees.coffees);

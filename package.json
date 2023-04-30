@@ -23,15 +23,17 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "redux": "^4.2.1",
+    "redux-mock-store": "^1.5.4",
     "remixicon": "^2.5.0",
     "sass": "^1.58.0",
+    "socket.io-client": "^4.6.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npx json-server coffee.json --port 3001\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --coverage=true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,5 +53,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-proposal-decorators": "^7.21.0",
+    "@babel/plugin-transform-react-jsx": "^7.21.0",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "babel-jest": "^29.5.0",
+    "enzyme": "^3.11.0",
+    "jest": "^27.5.1",
+    "jest-localstorage-mock": "^2.4.26",
+    "jsdom": "21.1.1",
+    "jsdom-global": "3.0.2"
   }
 }

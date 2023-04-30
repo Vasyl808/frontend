@@ -1,7 +1,8 @@
-import '../styles/delete.scss';
+//import '../styles/delete.scss';
 import image from '../assets/image/items-img/hilka.jpg'
 import { useEffect, useState } from 'react';
 import error_handler from '../utils/utils'
+import React from 'react';
 
 function Update() {
   const [products, setProducts] = useState([]);
@@ -104,13 +105,14 @@ function Update() {
                 <td>
                   <div>
                     <i
+                    data-testid="del_btn"
                       className="fa-solid fa-trash"
                       onClick={() => deleteMedicineById(product.id)}
                     ></i>
                   </div>
                 </td>
                 <td>
-                  <button className="update__btn">
+                  <button className="update__btn" data-testid="update_btn">
                     <a href={`update-item/${product.id}`}>Update item</a>
                   </button>
                 </td>

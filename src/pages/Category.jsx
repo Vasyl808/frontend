@@ -1,4 +1,4 @@
-import '../styles/admin.scss';
+//import '../styles/admin.scss';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import error_handler from '../utils/utils'
@@ -182,13 +182,14 @@ function Category(){
                 <td>
                   <div>
                     <i
+                      data-testid="start_delete"
                       className="fa-solid fa-trash"
                       onClick={() => deleteCategoryById(product.id_category)}
                     ></i>
                   </div>
                 </td>
                 <td>
-                  <button onClick={() => set_update(product.id_category)} className="update__btn">
+                  <button data-testid="start_update" onClick={() => set_update(product.id_category)} className="update__btn">
                     Update
                   </button>
                 </td>
@@ -207,13 +208,13 @@ function Category(){
                         <h2 className="login__title">Edit category</h2>
                         <div className="login__username-block">
                             <div className="login__username">Name</div>
-                            <input required type="text" id="name" defaultValue={UpdateName} className="login__input" />
+                            <input required type="text" data-testid="update_name" id="name" defaultValue={UpdateName} className="login__input" />
                         </div>
                         <div className="login__password-block">
                             <div className="login__username">Description</div>
-                            <input required type="text" id="description"  defaultValue={UpdateDescription} className="login__input" />
+                            <input required type="text" data-testid="update_description" id="description"  defaultValue={UpdateDescription} className="login__input" />
                         </div>
-                        <button type="submit" className="login__btn">Submit</button>
+                        <button type="submit" data-testid="update_btn" className="login__btn">Submit</button>
                         <button onClick={handleEditClick_false} className="login__btn">Reject</button>
                         </form>
                   </div>
@@ -223,13 +224,13 @@ function Category(){
                         <h2 className="login__title">Add category</h2>
                         <div className="login__username-block">
                             <div className="login__username">Name</div>
-                            <input required type="text" id="name" defaultValue={''} className="login__input" />
+                            <input required type="text" data-testid="add_name" id="name" defaultValue={''} className="login__input" />
                         </div>
                         <div className="login__password-block">
                             <div className="login__username">Description</div>
-                            <input required type="text" id="description" defaultValue={''}  className="login__input" />
+                            <input required type="text" data-testid="add_description" id="description" defaultValue={''}  className="login__input" />
                         </div>
-                        <button type="submit" className="login__btn">Add</button>
+                        <button type="submit" data-testid="add_btn" className="login__btn">Add</button>
                         </form>
                   </div>
               </div>)}

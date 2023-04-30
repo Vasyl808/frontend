@@ -1,11 +1,11 @@
 import Beans from './Beans';
-
-import '../../styles/about-goods.scss';
+import React from 'react';
+//import '../../styles/about-goods.scss';
 
 const AboutGoods = () => {
   return (
     <>
-        <div className="about-goods__descr">
+        <div data-testid="about-goods" className="about-goods__descr">
             <h2 className="title-pt-0">About our pharmacy</h2>
             <Beans/>
             <div className="about-goods__subtitle">

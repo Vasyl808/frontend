@@ -1,4 +1,5 @@
-import '../../styles/common-section.scss';
+//import '../../styles/common-section.scss';
+import React from 'react';
 
 const CommonSection = ({title}) => {
     return (

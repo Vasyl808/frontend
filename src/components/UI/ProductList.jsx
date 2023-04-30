@@ -4,8 +4,8 @@ import {addItem} from '../../redux/slices/medicineSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
-
-import '../../styles/product-list.scss';
+import React from 'react';
+//import '../../styles/product-list.scss';
 
 import image from '../../assets/image/items-img/hilka.jpg';
 

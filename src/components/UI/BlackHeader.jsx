@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
+import React from 'react';
 
-
-import '../../styles/blackHeader.scss';
+//import '../../styles/blackHeader.scss';
 
 const nav__links = [
     {
@@ -17,7 +17,7 @@ const nav__links = [
 const BlackHeader = () => {
 
     return (
-        <header className='blackheader'>
+        <header className='blackheader' data-testid="black-header">
             <div className="blackheader__menu">
                 {
                     nav__links.map((item, index) => (

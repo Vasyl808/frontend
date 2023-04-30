@@ -1,5 +1,6 @@
-import '../styles/add.scss';
+//import '../styles/add.scss';
 import { useState } from 'react';
+import React from 'react';
 import error_handler from '../utils/utils'
 
 function Add() {
@@ -64,11 +65,12 @@ function Add() {
 
       <div className="add">
         <div className="add__wrapper">
-          <h2 className="add__title">Add Item</h2>
+          <h2 className="add__title" data-testid="add">Add Item</h2>
           <div className="add__inputs">
             <div className="add__item">
               <div className="add__name">Name</div>
               <input
+                data-testid='name'
                 type="text"
                 className="add__input"
                 id="name"
@@ -77,8 +79,9 @@ function Add() {
               />
             </div>
             <div className="add__item">
-              <div className="add__name">Manufacturer</div>
+              <div className="add__name" >Manufacturer</div>
               <input
+              data-testid='manufacturer'
                 type="text"
                 className="add__input"
                 id="manufacturer"
@@ -89,6 +92,7 @@ function Add() {
             <div className="add__item">
               <div className="add__name">Description</div>
               <input
+              data-testid='description'
                 type="text"
                 className="add__input"
                 id="description"
@@ -96,9 +100,10 @@ function Add() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <div className="add__item">
+            <div className="add__item" >
               <div className="add__name">Category id</div>
               <input
+              data-testid='categoryId'
                 type="number"
                 className="add__input"
                 min="1"
@@ -108,9 +113,10 @@ function Add() {
                 onChange={(e) => setCategoryId(e.target.value)}
               />
             </div>
-            <div className="add__item">
+            <div className="add__item" >
               <div className="add__name">Medicine status</div>
               <input
+              data-testid='medicineStatus'
                 type="text"
                 className="add__input"
                 id="medicine_status"
@@ -118,9 +124,10 @@ function Add() {
                 onChange={(e) => setMedicineStatus(e.target.value)}
               />
            </div>
-           <div className="add__item">
+           <div className="add__item" >
               <div className="add__name">Price</div>
               <input
+              data-testid='price'
                 type="number"
                 className="add__input"
                 min="1"
@@ -131,8 +138,9 @@ function Add() {
               />
             </div>
             <div className="add__item">
-              <div className="add__name">Quantity</div>
+              <div className="add__name" >Quantity</div>
               <input
+              data-testid='quantity'
                 type="number"
                 className="add__input"
                 min="1"
@@ -142,9 +150,10 @@ function Add() {
                 onChange={(e) => setQuantity(e.target.value)}
               />
             </div>
-            <div className="add__item">
+            <div className="add__item" >
               <div className="add__name">Demand count</div>
               <input
+              data-testid='demand_count'
                 type="number"
                 className="add__input"
                 min="1"
@@ -154,9 +163,10 @@ function Add() {
                 onChange={(e) => setDemand_count(e.target.value)}
               />
             </div>
-            <div className="add__item">
+            <div className="add__item" >
               <div className="add__name">Demand</div>
               <input
+              data-testid='demand'
                 type="number"
                 className="add__input"
                 min="0"
@@ -166,9 +176,10 @@ function Add() {
                 onChange={(e) => setDemand(e.target.value)}
               />
             </div>
-            <div className="add__item">
+            <div className="add__item" >
               <div className="add__name">Image url</div>
               <input
+              data-testid='image_url'
                 type="text"
                 className="add__input"
                 id="image_url"
@@ -176,7 +187,7 @@ function Add() {
                 onChange={(e) => setImage_url(e.target.value)}
               />
             </div>
-            <button class="add__btn" onClick={handleAddItem}>ADD</button>
+            <button class="add__btn" data-testid='add_btn' onClick={handleAddItem}>ADD</button>
             </div>
         </div>
     </div>

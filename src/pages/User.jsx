@@ -1,4 +1,4 @@
-import '../styles/user.scss';
+//import '../styles/user.scss';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -97,32 +97,7 @@ const User = () => {
             })
             .catch((error) => {
                 //alert(error)
-                if (error instanceof Error) {
-                    // This is a network error, display a generic message
-                    try {
-                      const errorJson = JSON.parse(error.message);
-                      const errorFields = Object.keys(errorJson);
-                      let errorMessage = '';
-                
-                      errorFields.forEach((field) => {
-                        errorMessage += `${field}: ${errorJson[field][0]}\n`;
-                      });
-                        toast.error(`Error:\n${errorMessage}`, {
-                          position: toast.POSITION.TOP_CENTER,
-                          autoClose: 20000 // в мілісекундах
-                      });
-                    } catch (e) {
-                      toast.error(error.message, {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 20000 // в мілісекундах
-                    });
-                    }
-                  } else {
-                      toast.error(error.message, {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 20000 // в мілісекундах
-                    });
-                  }
+                error_handler(error);
                 console.log(`Fetch error: ${error}`);
             });
     }
@@ -155,13 +130,13 @@ const User = () => {
                     <button class="panel__btn">
                         <Link to={`/update-user/${id_user}`}>Update User</Link>
                     </button>
-                    <button class="panel__btn" type="submit" id="delete_btn" onClick={delete_user}>
+                    <button class="panel__btn" data-testid="delete" type="submit" id="delete_btn" onClick={delete_user}>
                         Delete account
                     </button>
                     <button class="panel__btn">
                         <Link to={`/user-shopping-list/${id_user}`}>Shopping list</Link>
                     </button>
-                    <button class="panel__btn" type="submit" id="logout_btn" onClick={logout}>
+                    <button class="panel__btn" data-testid="logout" type="submit" id="logout_btn" onClick={logout}>
                         Log Out
                     </button>
                 </div>
