@@ -7,21 +7,23 @@ jest.mock('react-toastify', () => ({
   },
 }));
 
-describe('error_handler function', () => {
+describe('error_handler', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('should display a generic error message for network errors', () => {
-    const error = new Error('Network Error');
+    const error = new Error('{"error": ["Something went wrong."]}');
     error_handler(error);
   });
 
-  it('should display an error message with field names and values', () => {
-    const error = new Error(
-      JSON.stringify({ field1: ['error message 1'], field2: ['error message 2'] })
-    );
+  it('should display the error message for non-network errors', () => {
+    const error = new Error('Something went wrong.');
     error_handler(error);
   });
 
+  it('should display the error message for non-Error objects', () => {
+    const error = { message: 'Something went wrong.' };
+    error_handler(error);
+  });
 });
