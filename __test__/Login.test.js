@@ -20,6 +20,37 @@ describe('Login component', () => {
     //expect(toast).toBeInTheDocument();
   });
 
+  it('test reset password',() => {
+    const mockData = {
+      email: "testgf@gmail.com"
+    };
+    global.fetch = jest.fn(() =>
+          Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(
+                mockData
+            ),
+          })
+        );
+    render(<Router> <Login /> </Router>);
+    const loginBtn = screen.getByTestId("recovery_btn");
+    fireEvent.click(loginBtn);
+    fireEvent.change(screen.getByTestId("email"), { target: { value: 'testgf@gmail.com' } });
+    fireEvent.click(screen.getByTestId("recovery"))
+    
+    //expect(toast).toBeInTheDocument();
+  });
+
+  it('test reset password close',() => {
+    render(<Router> <Login /> </Router>);
+    const loginBtn = screen.getByTestId("recovery_btn");
+    fireEvent.click(loginBtn);
+    fireEvent.change(screen.getByTestId("email"), { target: { value: 'testgf@gmail.com' } });
+    fireEvent.click(screen.getByTestId("close_btn"))
+    
+    //expect(toast).toBeInTheDocument();
+  });
+
   it('should redirect to user page when correct username and password are provided', async () => {
     const mockData = {
       id_user: 1,

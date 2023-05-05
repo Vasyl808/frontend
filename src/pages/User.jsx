@@ -18,7 +18,16 @@ const None = () =>(
 
 const User = () => {
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen1, setIsOpen1] = useState(false);
 
+    function handleClick() {
+        setIsOpen(!isOpen);
+      }
+
+    function handleClick1() {
+        setIsOpen1(!isOpen1);
+      }
     //useEffect(() => {
     //    setIsAdmin(localStorage.getItem('userstatus') === "pharmacist");
     //}, []);
@@ -50,6 +59,110 @@ const User = () => {
             console.error(error)
         })
     }
+
+    async function loginUser(body) {
+        const headers = new Headers();
+        headers.set('Authorization', `Basic ${btoa(`${body.username}:${body.password}`)}`);
+        headers.set('content-type', 'application/json');
+        const response = await fetch('http://127.0.0.1:5000/api/v1/user/login', {
+          method: 'POST',
+          body: JSON.stringify(body),
+          headers,
+        });
+        if (!response.ok) {
+          const error = await response.text();
+          throw new Error(error);
+        }
+        return response.json();
+      }
+
+    const buttonHandler = async (event) => {
+        event.preventDefault();
+        const form = event.target.closest('form');
+        if (form.checkValidity()) {
+          const username = form.elements.username;
+          const password = form.elements.password;
+          const entry = {
+            username: username.value,
+            password: password.value,
+          };
+          
+    
+          try {
+            const data = await loginUser(entry);
+            if (String(btoa(`${data.username}:${password.value}`)) === String(window.localStorage.getItem('token'))){
+                window.location.href = '/update-user/' + Number(data.id_user);
+            }
+            else{
+                toast.error('Provided username or password does not exist!', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 20000 // в мілісекундах
+                  });
+            }
+    
+            
+          } catch (error) {
+            error_handler(error);
+            console.error(error);
+            toast.error('Provided username or password does not exist!', {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 20000 // в мілісекундах
+            });
+          }
+        }
+      };
+    
+      const buttonHandler1 = async (event) => {
+        event.preventDefault();
+        const form = event.target.closest('form');
+        if (form.checkValidity()) {
+          const username = form.elements.username;
+          const password = form.elements.password;
+          const entry = {
+            username: username.value,
+            password: password.value,
+          };
+          
+    
+          try {
+            const data = await loginUser(entry);
+            if (String(btoa(`${data.username}:${password.value}`)) === String(window.localStorage.getItem('token'))){
+                deleteUser()
+                        .then(async (response) => {
+                        if (!response.ok) {
+                            //alert(response)
+                            throw new Error(await response.text());
+                        }
+                            return response.text();
+                        })
+                        .then(() => {
+                            window.localStorage.clear();
+                            window.location.href = '/login';
+                        })
+                        .catch((error) => {
+                            //alert(error)
+                            error_handler(error);
+                            console.log(`Fetch error: ${error}`);
+                        });
+            }
+            else{
+                toast.error('Provided username or password does not exist!', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 20000 // в мілісекундах
+                  });
+            }
+    
+            
+          } catch (error) {
+            error_handler(error);
+            console.error(error);
+            toast.error('Provided username or password does not exist!', {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 20000 // в мілісекундах
+            });
+          }
+        }
+      };
     
     function setUserData(data){
         const username1 = document.getElementById('title-user');
@@ -81,27 +194,6 @@ const User = () => {
         window.location.href = '/home';
     }
 
-    async function delete_user(event){
-        event.preventDefault();
-        deleteUser()
-            .then(async (response) => {
-            if (!response.ok) {
-                //alert(response)
-                throw new Error(await response.text());
-            }
-                return response.text();
-            })
-            .then(() => {
-                window.localStorage.clear();
-                window.location.href = '/login';
-            })
-            .catch((error) => {
-                //alert(error)
-                error_handler(error);
-                console.log(`Fetch error: ${error}`);
-            });
-    }
-
     function deleteUser(){
         const token = window.localStorage.getItem('token')
         //const id_user = window.localStorage.getItem('id_user')
@@ -127,10 +219,10 @@ const User = () => {
                     <h2 class="panel__title">
                         User Panel
                     </h2>
-                    <button class="panel__btn">
-                        <Link to={`/update-user/${id_user}`}>Update User</Link>
+                    <button class="panel__btn" data-testid='open_btn' onClick={handleClick}>
+                        Update User
                     </button>
-                    <button class="panel__btn" data-testid="delete" type="submit" id="delete_btn" onClick={delete_user}>
+                    <button class="panel__btn" data-testid="delete" type="submit" id="delete_btn" onClick={handleClick1}>
                         Delete account
                     </button>
                     <button class="panel__btn">
@@ -169,6 +261,50 @@ const User = () => {
                     </div>
                 </div>
             </div>
+            {isOpen && (
+        <div className="overlay">
+
+
+            <div className="login">
+        <form className="login__wrapper" onSubmit={buttonHandler}>
+          <h2 className="login__title">Confirm your data</h2>
+          <div className="login__username-block">
+            <div className="login__username">Username</div>
+            <input required type="text" data-testid='username' id="username" className="login__input" />
+          </div>
+          <div className="login__password-block">
+            <div className="login__username">Password</div>
+            <input required type="password" data-testid='password' id="password" className="login__input" />
+          </div>
+          <button type="submit" data-testid='login_btn' className="login__btn">Confirm</button>
+          <button  data-testid='close_btn' className="login__btn" onClick={handleClick}>Reject</button>
+        </form>
+      </div>
+
+        </div>
+      )}
+      {isOpen1 && (
+        <div className="overlay">
+
+
+            <div className="login">
+        <form className="login__wrapper" onSubmit={buttonHandler1}>
+          <h2 className="login__title">Confirm your data</h2>
+          <div className="login__username-block">
+            <div className="login__username">Username</div>
+            <input required type="text" data-testid='username' id="username" className="login__input" />
+          </div>
+          <div className="login__password-block">
+            <div className="login__username">Password</div>
+            <input required type="password" data-testid='password' id="password" className="login__input" />
+          </div>
+          <button type="submit" data-testid='login_btn' className="login__btn">Confirm</button>
+          <button  data-testid='close_btn' className="login__btn" onClick={handleClick1}>Reject</button>
+        </form>
+      </div>
+
+        </div>
+      )}
         </div>
     </>)
 }

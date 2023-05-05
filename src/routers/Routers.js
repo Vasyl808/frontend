@@ -18,6 +18,7 @@ import ShoppingList from '../pages/ShoppingList'
 import Order from '../pages/Order'
 import UserOrderList from '../pages/UserOrderList'
 import Category from '../pages/Category'
+import ResetPassword from '../components/Layout/ResetPassword'
 
 const Routers = () => {
     return (
@@ -41,6 +42,7 @@ const Routers = () => {
                 <Route path='order/:id' element={<Order/>}/>
                 <Route path='user-shopping-list/:id' element={<UserOrderList/>}/>
                 <Route path='category' element={<Category/>}/>
+                <Route path='reset-password/:token' element={<ResetPassword/>}/>
         </Routes>
     )
 }   

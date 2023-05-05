@@ -2,9 +2,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useState } from "react";
 import error_handler from '../utils/utils'
 
 const Login = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleClick() {
+    setIsOpen(!isOpen);
+  }
 
   async function loginUser(body) {
     const headers = new Headers();
@@ -55,6 +62,43 @@ const Login = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target.closest('form');
+      if (form.checkValidity()) {
+      const email = form.elements.email.value
+      console.log(email);
+      toast.success("Please, wait! We are sending a mail...",{
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 10000 // в мілісекундах
+      })
+      fetch('http://127.0.0.1:5000/api/v1/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email: email}),
+      })
+      .then(async (response) => {
+        if (!response.ok) {
+            //alert(response)
+            throw new Error(await response.text());
+        }
+            return response.text();
+        })
+        .then(() => {
+            toast.success("Sending success! Check your mail!",{
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 20000 // в мілісекундах
+            })
+        })
+        .catch((error) => {
+            error_handler(error)
+            console.log(`Fetch error: ${error}`);
+        });
+    }
+  };
+
   return (
     <>
       <section className="common__section">
@@ -79,7 +123,29 @@ const Login = () => {
             <div className="login__descr">Don't have an account?</div>
             <Link className='login__link' to='/sign-up'>Sign Up</Link>
           </div>
+          <div className="login__signup">
+            <div className="login__descr">Forgot your password?</div>
+            <i className='login__link' data-testid='recovery_btn' onClick={handleClick}>Recover</i>
+          </div>
         </form>
+        {isOpen && (
+        <div className="overlay">
+
+
+            <div className="login">
+        <form className="login__wrapper" onSubmit={handleSubmit}>
+          <h2 className="login__title">Input your email</h2>
+          <div className="login__username-block">
+            <div className="login__username">Email</div>
+            <input required type="email" data-testid='email' id="email" className="login__input" />
+          </div>
+          <button type="submit" data-testid='recovery' className="login__btn">Confirm</button>
+          <button  data-testid='close_btn' className="login__btn" onClick={handleClick}>Reject</button>
+        </form>
+      </div>
+
+        </div>
+      )}
       </div>
     </>
   );
