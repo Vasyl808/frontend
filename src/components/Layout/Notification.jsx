@@ -78,33 +78,40 @@ const Notification = () => {
       //});
 
       socket.on('admin_update_order', (data) => {
-        setIsOpen(true);
-        setOrderData(data.data);
-        console.log('New purchase added: ', data);
-        toast.success(data.data,{
-          position: toast.POSITION.TOP_CENTER,
-        autoClose: 20000 // в мілісекундах
-      })
+        if (Number(data.id) === Number(window.localStorage.getItem('id_user'))){
+          setIsOpen(true);
+          setOrderData(data.data);
+          console.log('New purchase added: ', data);
+          toast.success(data.data,{
+            position: toast.POSITION.TOP_CENTER,
+          autoClose: 20000 // в мілісекундах
+        })
+        }
+        
       });
 
       socket.on('admin_update_order_details', (data) => {
+        if (Number(data.id) === Number(window.localStorage.getItem('id_user'))){
         setIsOpen(true);
         setOrderData(data.data);
         console.log('New purchase added: ', data);
         toast.success(data.data,{
           position: toast.POSITION.TOP_CENTER,
         autoClose: 20000 // в мілісекундах
-      })
+        })
+      }
       });
 
       socket.on('admin_delete_order', (data) => {
+        if (Number(data.id) === Number(window.localStorage.getItem('id_user'))){
         setIsOpen(true);
         setOrderData(data.data);
         console.log('New purchase added: ', data);
         toast.success(data.data,{
           position: toast.POSITION.TOP_CENTER,
         autoClose: 20000 // в мілісекундах
-      })
+       })
+      }
       });
       socket.on('disconnect', function() {
         console.log('Disconnected from server');
