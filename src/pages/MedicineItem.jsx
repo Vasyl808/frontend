@@ -57,30 +57,46 @@ const MedicineItem = () => {
     };
 
     function addToDemand(){
-        const token = window.localStorage.getItem('token')
-        const id_user = window.localStorage.getItem('id_user')
-        const headers = new Headers();
-        headers.set('Authorization', 'Basic ' + token);
-        headers.set('content-type', 'application/json');
-        fetch('http://127.0.0.1:5000/api/v1/medicine/demand/' + Number(id), {
-            method: 'PUT', 
-            headers,
-        })
-        .then(async response => {
-            if (!response.ok) {
-                const error = await response.text();
+        let numbers = JSON.parse(window.localStorage.getItem('like'))
+        if (window.localStorage.getItem('like') === null || numbers.includes(Number(id)) === false){
+            const token = window.localStorage.getItem('token')
+            const id_user = window.localStorage.getItem('id_user')
+            const headers = new Headers();
+            headers.set('Authorization', 'Basic ' + token);
+            headers.set('content-type', 'application/json');
+            fetch('http://127.0.0.1:5000/api/v1/medicine/demand/' + Number(id), {
+                method: 'PUT', 
+                headers,
+            })
+            .then(async response => {
+                if (!response.ok) {
+                    const error = await response.text();
+                    error_handler(error);
+                    throw new Error(error);
+                    toast.error("Item available");
+                }
+                else{
+                    if (window.localStorage.getItem('like') === null){
+                        window.localStorage.setItem('like', JSON.stringify([Number(id)]))
+                    }
+                    else{
+                        numbers.push(Number(id));
+                        window.localStorage.setItem('like', JSON.stringify(numbers))
+                    }
+                    toast.success("Item demand");
+                window.location.reload();}
+            })
+            .catch(error => {
                 error_handler(error);
-                throw new Error(error);
-                toast.error("Item available");
-            }
-            else{
-                toast.success("Item demand");
-            window.location.reload();}
-        })
-        .catch(error => {
-            error_handler(error);
-            console.error(error);
-        })
+                console.error(error);
+            })
+        }
+        else{
+            toast.error("You already liked this product", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 10000 // в мілісекундах
+            });
+        }
     }
 
 
