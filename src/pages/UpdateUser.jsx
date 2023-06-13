@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import error_handler from '../utils/utils'
 import { set } from 'date-fns';
+import Spinner from '../components/Spinner/Spinner';
 
 function UpdateUser() {
   const [firstName, setFirstName] = useState("");
@@ -13,7 +14,7 @@ function UpdateUser() {
   const [age, setAge] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
-
+  const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState({});
   const {id} = useParams();
   const id_user = id;
@@ -52,6 +53,7 @@ function UpdateUser() {
         error_handler(error)
         console.error(error)
     });
+    setIsLoading(false);
   }, []);
 
   const handleFormSubmit = (event) => {
@@ -130,6 +132,10 @@ function UpdateUser() {
         });
     }
   };
+
+  if (isLoading) {
+    return <Spinner/>; // Показуємо завантажувальний екран
+  }
 
   return (
     <>

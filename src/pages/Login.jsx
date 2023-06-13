@@ -95,7 +95,7 @@ const Login = () => {
         .catch((error) => {
             error_handler(error)
             console.log(`Fetch error: ${error}`);
-        });
+      });
     }
   };
 

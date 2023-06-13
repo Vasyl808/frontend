@@ -84,7 +84,7 @@ const MedicineItem = () => {
                         window.localStorage.setItem('like', JSON.stringify(numbers))
                     }
                     toast.success("Item demand");
-                window.location.reload();}
+            }
             })
             .catch(error => {
                 error_handler(error);

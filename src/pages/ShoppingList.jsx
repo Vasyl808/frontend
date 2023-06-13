@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 //import '../styles/shoping-list.scss';
 import error_handler from '../utils/utils'
+import Spinner from '../components/Spinner/Spinner';
 
 function ShoppingList() {
   const [shoppingList, setShoppingList] = useState([]);
   const [filter, setFilter] = useState('all')
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const token = window.localStorage.getItem('token');
     const headers = new Headers();
@@ -26,6 +28,7 @@ function ShoppingList() {
       .then(data => setShoppingList(data.Orders)
       )
       .catch(error => error_handler(error));
+    setIsLoading(false);
   }, []);
 
   function filterPlaced(orders) {
@@ -99,6 +102,10 @@ switch(filter) {
   }
 
   const filteredOrders = filterFunction(shoppingList);
+
+  if (isLoading) {
+    return <Spinner/>; // Показуємо завантажувальний екран
+  }
 
   return (
     <>

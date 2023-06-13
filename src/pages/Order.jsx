@@ -6,6 +6,7 @@ import error_handler from '../utils/utils';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
+import Spinner from '../components/Spinner/Spinner';
 
 const Order = () => {
   const [orderData, setOrderData] = useState(null);
@@ -174,7 +175,7 @@ const Order = () => {
   }
 
   if (orderData === null) {
-    return <div>Loading...</div>;
+    return <Spinner/>;
   }
 
   return (
@@ -202,7 +203,7 @@ const Order = () => {
               <tr>
               <td>
               <Link to={`/shop/${item.medicine_id}`}>
-                      <img src={item_img} alt="item" />
+                      <img src={item.imgUrl} alt="item" />
                       </Link>
               </td>
               <td>

@@ -1,5 +1,5 @@
 //import '../styles/add.scss';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import React from 'react';
 import error_handler from '../utils/utils'
 
@@ -13,7 +13,31 @@ function Add() {
   const [quantity, setQuantity] = useState(1);
   const [demand, setDemand] = useState(0);
   const [image_url, setImage_url] = useState('');
-  const [demand_count, setDemand_count] = useState(null);
+  const [demand_count, setDemand_count] = useState(0);
+  const [categories, setCategories] = useState([]);
+
+  function getCategoryList() {
+    // Отримання таблиці із списком продуктів з сервера
+    //const headers = new Headers();
+    //const token = window.localStorage.getItem('token');
+    //headers.set('Authorization', 'Basic ' + token);
+    //headers.set('content-type', 'application/json');
+    fetch('http://127.0.0.1:5000/api/v1/pharmacy/category-list')
+      .then(async response => {
+        if (!response.ok) {
+          const error = await response.text();
+          throw new Error(error);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((error) => {
+        error_handler(error);
+        console.error('Error fetching products', error);
+      });
+  }
 
   const handleAddItem = async (event) => {
     event.preventDefault();
@@ -48,12 +72,16 @@ function Add() {
       }
 
       //window.localStorage.setItem('current_user', JSON.stringify(entry));
-      window.location.href = '/admin';
+      window.location.href = '/update';
     } catch (error) {
       error_handler(error);
       console.log(`Fetch error: ${error}`);
     }
   };
+
+  useEffect(() => {
+    getCategoryList();
+  }, []);
 
   return (
     <>
@@ -101,28 +129,37 @@ function Add() {
               />
             </div>
             <div className="add__item" >
-              <div className="add__name">Category id</div>
-              <input
-              data-testid='categoryId'
-                type="number"
-                className="add__input"
-                min="1"
-                max="50"
-                id="c_id"
-                value={categoryId}
-                onChange={(e) => setCategoryId(e.target.value)}
-              />
+              <div className="add__name">Category</div>
+              <select
+                  data-testid="categoryId"
+                  className="add__input"
+                  id="c_id"
+                  value={categoryId}
+                  onChange={(e) => setCategoryId(e.target.value)}
+                >
+                  {categories.map((category) => (
+                    <option key={category.id_category} value={category.id_category}>
+                      {category.category_name}
+                    </option>
+                  ))}
+    </select>
             </div>
             <div className="add__item" >
               <div className="add__name">Medicine status</div>
               <input
-              data-testid='medicineStatus'
+                data-testid="medicineStatus"
                 type="text"
                 className="add__input"
                 id="medicine_status"
+                list="status_options"
                 value={medicineStatus}
                 onChange={(e) => setMedicineStatus(e.target.value)}
               />
+              <datalist id="status_options">
+                <option value="available">Available</option>
+                <option value="pending">Pending</option>
+                <option value="sold">Sold</option>
+              </datalist>
            </div>
            <div className="add__item" >
               <div className="add__name">Price</div>
@@ -156,7 +193,7 @@ function Add() {
               data-testid='demand_count'
                 type="number"
                 className="add__input"
-                min="1"
+                min="0"
                 max="50000"
                 id="demand_count"
                 value={demand_count}

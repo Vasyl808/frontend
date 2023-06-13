@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 import error_handler from '../utils/utils'
+import Spinner from '../components/Spinner/Spinner';
 
 //import '../styles/checkout.scss';
 
@@ -12,6 +13,7 @@ const Checkout = () => {
     const [userData, setUserData] = useState({});
     const [total, setTotal] = useState(null);
     const [totalprice, setTotalprice] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     useEffect(() => {
@@ -108,7 +110,7 @@ const Checkout = () => {
               position: toast.POSITION.TOP_CENTER,
             autoClose: 15000 // в мілісекундах
           });
-            window.location.href = '/home';
+            window.location.href = '/user-shopping-list/' + Number(id_user);
           })
           .catch((error) => {
             error_handler(error);
@@ -135,12 +137,18 @@ const Checkout = () => {
         let total_price = 0;
         cartData.forEach(item => {
             total_count += Number(item.quantity);
-            total_price += Number(item.price);
+            total_price += Number(item.price * item.quantity);
         })
         setTotal(total_count);
         setTotalprice(total_price);
     }
+    setIsLoading(false);
   }
+
+  if (isLoading) {
+    return <Spinner/>; // Показуємо завантажувальний екран
+  }
+
     return (
         <>
           <section className="bgc">

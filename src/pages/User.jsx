@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import error_handler from '../utils/utils'
+import { set } from 'date-fns';
+import Spinner from '../components/Spinner/Spinner';
 
 const Admin_Panel = () => (
     <button class="panel__btn">
@@ -20,6 +22,12 @@ const User = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen1, setIsOpen1] = useState(false);
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
+    const [username, setUsername] = useState('')
+    const [email, SetEmail] = useState('');
+    const [phone_number, SetPhone] = useState('')
+    const [isLoading, setIsLoading] = useState(true);
 
     function handleClick() {
         setIsOpen(!isOpen);
@@ -165,20 +173,27 @@ const User = () => {
       };
     
     function setUserData(data){
-        const username1 = document.getElementById('title-user');
-        username1.innerText = data['user']['username'];
-        const username = document.getElementById('username');
-        username.innerText = data['user']['username'];
-        const first_name = document.getElementById('first_name');
-        first_name.innerText = data['user']['first_name'];
-        const last_name = document.getElementById('last_name');
-        last_name.innerText = data['user']['last_name'];
-        const email = document.getElementById('email');
-        email.innerText = data['user']['email'];
-        const phone_number = document.getElementById('phone_number');
-        phone_number.innerText = data['user']['phone_number'];
+        //const username1 = document.getElementById('title-user');
+        //username1.innerText = data['user']['username'];
+        //const username = document.getElementById('username');
+        //username.innerText = data['user']['username'];
+        //const first_name = document.getElementById('first_name');
+        //first_name.innerText = data['user']['first_name'];
+        //const last_name = document.getElementById('last_name');
+        //last_name.innerText = data['user']['last_name'];
+        //const email = document.getElementById('email');
+        //email.innerText = data['user']['email'];
+        //const phone_number = document.getElementById('phone_number');
+        //phone_number.innerText = data['user']['phone_number'];
         //window.localStorage.setItem('userstatus', data['user']['userstatus'])
         //console.log(window.localStorage.getItem('userstatus'))
+        setUsername(data['user']['username']);
+        setFirstName(data['user']['first_name']);
+        setLastName(data['user']['last_name']);
+        SetEmail(data['user']['email']);
+        SetPhone(data['user']['phone_number']);
+        setIsLoading(false)
+
     }
 
     useEffect(() => {
@@ -204,6 +219,10 @@ const User = () => {
             method: 'DELETE',
             headers,
         });
+    }
+
+    if (isLoading) {
+      return <Spinner/>; // Показуємо завантажувальний екран
     }
 
     return(<>
@@ -239,23 +258,23 @@ const User = () => {
                     <div class="panel__info-wrapper">
                         <div class="panel__info-block">
                             <div class="panel__info__name">Username:</div>
-                            <div class="panel__info__name" id="username"></div>
+                            <div class="panel__info__name" id="username"> {username} </div>
                         </div>
                         <div class="panel__info-block">
                             <div class="panel__info__name">First name:</div>
-                            <div class="panel__info__name" id="first_name"></div>
+                            <div class="panel__info__name" id="first_name"> {first_name} </div>
                         </div>
                         <div class="panel__info-block">
                             <div class="panel__info__name">Last name:</div>
-                            <div class="panel__info__name" id="last_name"></div>
+                            <div class="panel__info__name" id="last_name"> {last_name} </div>
                         </div>
                         <div class="panel__info-block">
                             <div class="panel__info__name">Email:</div>
-                            <div class="panel__info__name" id="email"></div>
+                            <div class="panel__info__name" id="email"> {email}</div>
                         </div>
                         <div class="panel__info-block">
                             <div class="panel__info__name">Phone number:</div>
-                            <div class="panel__info__name" id="phone_number"></div>
+                            <div class="panel__info__name" id="phone_number"> {phone_number} </div>
                         </div>
                         {isAdmin ? <Admin_Panel /> : <None />}
                     </div>

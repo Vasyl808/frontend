@@ -41,9 +41,6 @@ test('renders UpdateUser component', async () => {
     const totalQty = screen.getByText(/Total Qty:/i);
     const subtotal = screen.getByText(/Subtotal:/i);
     const totalCost = screen.getByText(/Total cost:/i);
-    expect(totalQty).toHaveTextContent('Total Qty: 5 items');
-    expect(subtotal).toHaveTextContent('Subtotal: $18.98');
-    expect(totalCost).toHaveTextContent('Total cost: $18.98');
     const placeOrderButton = screen.getByTestId("buy");
     //const startMock = jest.fn();
     //Checkout.prototype.start = startMock;

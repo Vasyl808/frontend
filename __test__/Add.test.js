@@ -2,6 +2,36 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Add from '../src/pages/Add';
 import React from 'react';
 import '@testing-library/jest-dom';
+const cat_list = [
+  {
+    "category_name": "test",
+    "description": "test",
+    "id_category": 1
+  },
+  {
+    "category_name": "wefew",
+    "description": "wefew",
+    "id_category": 7
+  },
+  {
+    "category_name": "aaaaa",
+    "description": "aaaaa",
+    "id_category": 11
+  }
+];
+
+
+
+beforeEach(() => {
+  global.fetch = jest.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(
+          cat_list
+        ),
+      })
+    );
+});
 
 describe('Add component', () => {
   test('renders Add component', () => {
@@ -40,20 +70,6 @@ describe('Add component', () => {
     const descriptionInput = screen.getByTestId('description');
     fireEvent.change(descriptionInput, { target: { value: 'Test Description' } });
     expect(descriptionInput.value).toBe('Test Description');
-  });
-
-  test('sets category id when input is entered', () => {
-    render(<Add />);
-    const categoryIdInput = screen.getByTestId('categoryId');
-    fireEvent.change(categoryIdInput, { target: { value: 2 } });
-    expect(categoryIdInput.value).toBe('2');
-  });
-
-  test('sets medicine status when input is entered', () => {
-    render(<Add />);
-    const medicineStatusInput = screen.getByTestId('medicineStatus');
-    fireEvent.change(medicineStatusInput, { target: { value: 'Test Medicine Status' } });
-    expect(medicineStatusInput.value).toBe('Test Medicine Status');
   });
 
   test('sets price when input is entered', () => {
@@ -123,8 +139,6 @@ describe('Add component', () => {
     fireEvent.change(name, { target: { value: "name" } });
     fireEvent.change(manufacturer, { target: { value: "manufacturer" } });
     fireEvent.change(description, { target: { value: "description" } });
-    fireEvent.change(categoryId, { target: { value: 1} });
-    fireEvent.change(medicineStatus, { target: { value: "sold" } });
     fireEvent.change(price, { target: { value: 10 } });
     fireEvent.change(quantity, { target: { value: 0 } });
     fireEvent.change(demand_count, { target: { value: 0 } });

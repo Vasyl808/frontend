@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import error_handler from '../utils/utils'
 //import '../styles/shoping-list.scss';
+import Spinner from '../components/Spinner/Spinner';
 
 function UserOrderList() {
     const [UserOrderList, setUserOrderList] = useState([]);
     const [filter, setFilter] = useState('all')
     const {id} = useParams();
     const id_user = id;
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       const token = window.localStorage.getItem('token');
@@ -31,6 +33,8 @@ function UserOrderList() {
         .then(data => setUserOrderList(data.Orders)
         )
         .catch(error => error_handler(error));
+        setIsLoading(false)
+ 
     }, []);
     
     function filterPlaced(orders) {
@@ -104,6 +108,11 @@ function UserOrderList() {
     }
 
     const filteredOrders = filterFunction(UserOrderList);
+
+    
+  if (isLoading) {
+    return <Spinner/>; // Показуємо завантажувальний екран
+  }
 
     return (
       <>
