@@ -1,0 +1,5 @@
+[project]
+name = "frontend_shop"
+version = "1.0.0"
+[project.urls]
+"Source" = "https://github.com/Vasyl808/frontend"
